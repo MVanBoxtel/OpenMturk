@@ -1,0 +1,4 @@
+target/classes/com/mvjf/OpenMturk/*
+target/*
+dependency-reduced-pom.xml
+credentials.txt

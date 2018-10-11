@@ -1,0 +1,2289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="OpenMturk"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,43,0,0,5,-105"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="pnlMain">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1429, 800]"/>
+        </Property>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="pnlAccount">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Account Management">
+                <Property name="tabTitle" type="java.lang.String" value="Account Management"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblSignInAccount" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInAccount" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="380" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                              <Component id="lblAWSCreds" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="btnValidate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnLoadCredentials" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnSignout" min="-2" pref="179" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtSecretKey" min="-2" pref="377" max="-2" attributes="0"/>
+                                  <Component id="txtAccessKey" min="-2" pref="377" max="-2" attributes="0"/>
+                                  <Component id="lblSecretKey" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccessKey" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnOpenWebsite" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                                  <Component id="lblEndpoint" alignment="0" min="-2" pref="313" max="-2" attributes="0"/>
+                                  <Component id="CbxEndpoint" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtAccountBalance" min="-2" pref="196" max="-2" attributes="0"/>
+                                  <Component id="btnGetBalance" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblSignInAccount" pref="29" max="32767" attributes="0"/>
+                          <Component id="pnlSignInAccount" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="lblAWSCreds" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="lblAccessKey" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txtAccessKey" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblSecretKey" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtSecretKey" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnValidate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLoadCredentials" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSignout" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="lblEndpoint" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CbxEndpoint" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAccountBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnOpenWebsite" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGetBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblAWSCreds">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AWS Credentials"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAccessKey">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAccessKey">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Access Key"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSecretKey">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Secret Key"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtSecretKey">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnValidate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Validate Credentials"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnValidateMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAccountBalance">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnGetBalance">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Check Account Balance"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGetBalanceMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnOpenWebsite">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Open Requester Website"/>
+              </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Reload"/>
+              </AccessibilityProperties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnOpenWebsiteMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnLoadCredentials">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Load Credentials CSV"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLoadCredentialsMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEndpoint">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MTurk EndPoint:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="CbxEndpoint">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Production (requester.mturk.com)"/>
+                    <StringItem index="1" value="Sandbox (requestersandbox.mturk.com)"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSignout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sign Out"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSignoutMouseClicked"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JPanel" name="pnlSignInAccount">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInAccount">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlCreateHIT">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[1158, 970]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Create HIT">
+                <Property name="tabTitle" type="java.lang.String" value="Create HIT"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sclpnDescription" alignment="0" min="-2" pref="452" max="-2" attributes="0"/>
+                                  <Component id="lblDescription" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sclpnKeywords" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                                  <Component id="lblKeywords" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMaxAssignments" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtMaxAssignments" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblNumofParticipantsUnit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtReward" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblRewardUnits" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblAssignDuration" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblReward" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtAssignDuration" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblAssignmentDurationUnit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblAutoApprveDelay" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtAutoApprvlDelay" min="-2" pref="83" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Component id="lblAutoApprovalUnit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtHITLifetime" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="lblHITLifetimeUnit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblHITLifetime" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblHITApprovalRate" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblAdultWorker" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="cmbxHITApprovalRateComparator" min="-2" pref="119" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                                          <Component id="txtHITApprovalRate" min="-2" pref="45" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                                          <Component id="cmbxHITsApprovedComparator" min="-2" pref="118" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="txtHITsApproved" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                                          <Component id="lblUnitHitApprovalRate" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="chkHITApprovalEnabled" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                          <Component id="lblHitsApprovedUnits" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="chkHITsApprovedEnabled" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="chkAdultOnly" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="chkAdultsOnlyEnabled" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblMasters" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="chkMastersExists" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="chkMastersEnabled" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblHITsApproved" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lyrpnMicrobatchSelect" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblEstimatedCost" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnCreateHIT" min="-2" pref="247" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblLocale" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblCountry" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblQualifications" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                                          <Component id="sclLocales" min="-2" pref="254" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="cmbxLocaleComparator" min="-2" pref="118" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblHITTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHITTitle" alignment="0" min="-2" pref="452" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtExternalURL" min="-2" pref="359" max="-2" attributes="0"/>
+                                  <Component id="lblExternalURL" min="-2" pref="135" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblSignInCreateHIT" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pnlSignInCreateHIT" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="chkLocale" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnlSignInCreateHIT" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSignInCreateHIT" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblHITTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblExternalURL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtHITTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDescription" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="sclpnDescription" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblKeywords" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="sclpnKeywords" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="txtExternalURL" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="lblQualifications" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblCountry" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="lblLocale" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="chkLocale" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbxLocaleComparator" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="sclLocales" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblMaxAssignments" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtMaxAssignments" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumofParticipantsUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblReward" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtReward" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRewardUnits" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAssignDuration" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtAssignDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAssignmentDurationUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAutoApprveDelay" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtAutoApprvlDelay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAutoApprovalUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblHITLifetime" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHITsApproved" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHITsApproved" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkHITsApprovedEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbxHITsApprovedComparator" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHitsApprovedUnits" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAdultWorker" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkAdultOnly" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkAdultsOnlyEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHITApprovalRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHITApprovalRate" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="cmbxHITApprovalRateComparator" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblUnitHitApprovalRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkHITApprovalEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblMasters" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkMastersExists" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkMastersEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lyrpnMicrobatchSelect" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblEstimatedCost" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnCreateHIT" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtHITLifetime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHITLifetimeUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="txtHITTitle">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Title:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The title of the HIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtReward">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtRewardFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblReward">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reward:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The amount of money the Requester will pay a Worker for successfully completing the HIT in USD (e.g. 12.75 is $12.75 US)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtMaxAssignments">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMaxAssignmentsFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMaxAssignments">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Number of Participants:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The number of times the HIT can be accepted and completed before the HIT becomes unavailable"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHITLifetime">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITLifetime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Lifetime:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The amount of time, in seconds, after which the HIT is no longer available for users to accept"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclpnKeywords">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtKeywords">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblKeywords">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Keywords:"/>
+                <Property name="toolTipText" type="java.lang.String" value="One or more words or phrases that describe the HIT, separated by commas"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclpnDescription">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtDescription">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblDescription">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Description:"/>
+                <Property name="toolTipText" type="java.lang.String" value="A general description of the HIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAutoApprvlDelay">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAutoApprveDelay">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Auto Approval Delay:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignDuration">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment Duration:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The length of time, in seconds, that a Worker has to complete the HIT after accepting it"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAssignDuration">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnCreateHIT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Create HIT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCreateHITMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblExternalURL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Study/Survey URL:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The URL of the survey to be completed"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtExternalURL">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[4, 25]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblQualifications">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Qualifications:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Conditions that a Worker&apos;s Qualifications must meet in order to accept the HIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLocale">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Locale - "/>
+                <Property name="toolTipText" type="java.lang.String" value="The location of the Worker"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCountry">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Country"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkLocale">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enabled"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITsApproved">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HITs Approved -"/>
+                <Property name="toolTipText" type="java.lang.String" value="Specifies the total number of HITs submitted by a Worker that have been approved"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHITsApproved">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkHITsApprovedEnabled">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enabled"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAdultWorker">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Adult Workers Only - "/>
+                <Property name="toolTipText" type="java.lang.String" value="Requires workers to acknowledge that they are over 18 and that they agree to work on potentially offensive content"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkAdultOnly">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="True"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkAdultsOnlyEnabled">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enabled"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITApprovalRate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Approval Rate -"/>
+                <Property name="toolTipText" type="java.lang.String" value="The percentage of assignments the Worker has submitted that were subsequently approved by the Requester, over all assignments the Worker has submitted"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHITApprovalRate">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkHITApprovalEnabled">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enabled"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMasters">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Masters -"/>
+                <Property name="toolTipText" type="java.lang.String" value="Masters are Workers who have demonstrated superior performance while completing thousands of HITs across the Mechanical Turk marketplace"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkMastersExists">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="True"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMastersExistsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkMastersEnabled">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enabled"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMastersEnabledActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxHITsApprovedComparator">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="LessThan"/>
+                    <StringItem index="1" value="LessThanOrEqualTo"/>
+                    <StringItem index="2" value="GreaterThan"/>
+                    <StringItem index="3" value="GreaterThanOrEqualTo"/>
+                    <StringItem index="4" value="EqualTo"/>
+                    <StringItem index="5" value="NotEqualTo"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxHITApprovalRateComparator">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="LessThan"/>
+                    <StringItem index="1" value="LessThanOrEqualTo"/>
+                    <StringItem index="2" value="GreaterThan"/>
+                    <StringItem index="3" value="GreaterThanOrEqualTo"/>
+                    <StringItem index="4" value="EqualTo"/>
+                    <StringItem index="5" value="NotEqualTo"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Container class="javax.swing.JPanel" name="pnlSignInCreateHIT">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInCreateHIT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUnitHitApprovalRate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="%"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHitsApprovedUnits">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="# of HITs"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRewardUnits">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="dollars (eg. 12.50)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentDurationUnit">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="minutes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAutoApprovalUnit">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="hours"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITLifetimeUnit">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="hours"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNumofParticipantsUnit">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="participants"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JLayeredPane" name="lyrpnMicrobatchSelect">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblMicroBatch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="chkMicroBatch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMicroBatch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="chkMicroBatch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JCheckBox" name="chkMicroBatch">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="True"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMicroBatchActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblMicroBatch">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="MicroBatch:"/>
+                    <Property name="toolTipText" type="java.lang.String" value="MicroBatch enables &quot;batching&quot; for HITs with over 9 assignments, this will separate assignments into HITs of 9 each to save on mturk costs"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblEstimatedCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estimated Cost:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclLocales">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstLocales">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JComboBox" name="cmbxLocaleComparator">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="EqualTo"/>
+                    <StringItem index="1" value="NotEqualTo"/>
+                    <StringItem index="2" value="In"/>
+                    <StringItem index="3" value="NotIn"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbxLocaleComparatorActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlHITDetail">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Update HIT">
+                <Property name="tabTitle" type="java.lang.String" value="Update HIT"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblHITReviewStatusDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblAssignmentDurationDetail" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblAutoApprovalDelayDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblHITLayoutIDDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblHITStatusDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblHITTypeIDDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblKeywordsDetail" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblMaxAssignmentsDetail" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="lblHITGroupIDDetail" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="lblCreationTimeDetail" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblHITExpirationTimeDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="spnSecondDetail" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spnMinuteDetail" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spnHourDetail" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spnDayDetail" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spnMonthDetail" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spnYearDetail" min="-2" pref="91" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblHITDescriptionDetail" alignment="0" min="-2" pref="286" max="-2" attributes="0"/>
+                          <Component id="lblRewardDetail" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                          <Component id="lblQualificationsDetail" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
+                              <Component id="btnExpireHIT" min="-2" pref="210" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnUpdateHIT" min="-2" pref="211" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnDeleteHIT" min="-2" pref="211" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAddAssignments" min="-2" pref="134" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtMaxAssignmentsDetail" min="-2" pref="99" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblHITTitleDetail" min="-2" pref="1006" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sclListHITs" min="-2" pref="265" max="-2" attributes="0"/>
+                                  <Component id="lblHITsUpdate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnListHITs" alignment="0" min="-2" pref="265" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="67" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblSignInHITDetail" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInHITDetail" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="pnlSignInHITDetail" max="32767" attributes="0"/>
+                                  <Component id="lblSignInHITDetail" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="lblHITTitleDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblAssignmentDurationDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblAutoApprovalDelayDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblCreationTimeDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHITExpirationTimeDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnMonthDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnDayDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnYearDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnSecondDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnHourDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnMinuteDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITGroupIDDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITLayoutIDDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITReviewStatusDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITStatusDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITTypeIDDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblKeywordsDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblMaxAssignmentsDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAddAssignments" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMaxAssignmentsDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHITDescriptionDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblQualificationsDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblRewardDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="lblHITsUpdate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sclListHITs" min="-2" pref="374" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnListHITs" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnExpireHIT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnUpdateHIT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeleteHIT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="352" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="btnDeleteHIT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete HIT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeleteHITMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnListHITs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List HITs"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnListHITsMouseClicked"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclListHITs">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstListHITs">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="lstListHITs" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblHITTitleDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hit Title:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITDescriptionDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Description:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentDurationDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment Duration:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAutoApprovalDelayDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Auto Approval Delay:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreationTimeDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Creation Time:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITExpirationTimeDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Expiration Date (ss/mm/hh/dd/mm/yyyy):"/>
+                <Property name="toolTipText" type="java.lang.String" value="Update the expiration date of the HIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITGroupIDDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Group ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITLayoutIDDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Layout ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITReviewStatusDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Review Status:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITStatusDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT Status:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITTypeIDDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hit Type ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblKeywordsDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Keywords:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMaxAssignmentsDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Max Assignments:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRewardDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reward:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblQualificationsDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Qualifications:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnUpdateHIT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update HIT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUpdateHITMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtMaxAssignmentsDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnMonthDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnDayDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnYearDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnSecondDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnHourDetail">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnMinuteDetail">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnExpireHIT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Expire HIT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnExpireHITMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAddAssignments">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Assignments:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Update the number of assignments of a given HIT"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="pnlSignInHITDetail">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInHITDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITsUpdate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HITs:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlAppRejAssignments">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Assignment Management">
+                <Property name="tabTitle" type="java.lang.String" value="Assignment Management"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblAssignmentDetails" min="-2" pref="165" max="-2" attributes="0"/>
+                          <Component id="lblDeadline" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblRejectionTime" alignment="0" pref="376" max="32767" attributes="0"/>
+                          <Component id="lblApprovalTime" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblSubmitTime" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblAssignmentID" max="32767" attributes="0"/>
+                          <Component id="lblWorkerID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblHITIDDetail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblAssignmentStatus" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblAutoApprovalTime" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblAcceptTime" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblRequesterFeedback" alignment="0" max="32767" attributes="0"/>
+                          <Component id="sclRequesterFeedback" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="sclAssignmentHITs" max="32767" attributes="0"/>
+                              <Component id="btnListHITsAssignment" min="-2" pref="328" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblAssignmentHITs" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnUpdateAssignments" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnApproveAll" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnApproveSelected" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnRejectSelected" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="sclAssignments" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="lblAssignments" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblSignInAssignment" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInAssignment" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblAssignmentDetails" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="lblAssignmentID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblWorkerID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblHITIDDetail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAssignmentStatus" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAutoApprovalTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAcceptTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblSubmitTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblApprovalTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblRejectionTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDeadline" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblRequesterFeedback" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="sclRequesterFeedback" min="-2" pref="148" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="pnlSignInAssignment" max="32767" attributes="0"/>
+                                  <Component id="lblSignInAssignment" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAssignmentHITs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAssignments" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="sclAssignments" max="32767" attributes="0"/>
+                                  <Component id="sclAssignmentHITs" min="-2" pref="443" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnListHITsAssignment" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnUpdateAssignments" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnApproveSelected" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRejectSelected" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnApproveAll" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="149" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="sclAssignments">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstAssignments">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="lstAssignments" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnApproveAll">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Approve All"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApproveAllMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnApproveSelected">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Approve Selected"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApproveSelectedMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnRejectSelected">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reject Selected"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRejectSelectedMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentDetails">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment Details:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentID">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblWorkerID">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Worker ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITIDDetail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIT ID:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentStatus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment Status:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAutoApprovalTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Auto Approval Time:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAcceptTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Accept Time:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSubmitTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Submit Time:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblApprovalTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Approval TIme:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRejectionTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rejection Time:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDeadline">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Deadline:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRequesterFeedback">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Requester Feedback:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Submit some feedback to the worker upon approval or rejection of their work"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclRequesterFeedback">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtRequesterFeedback">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="sclAssignmentHITs">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstAssignmentHITs">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="lstAssignmentHITs" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnListHITsAssignment">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List HITs"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnListHITsAssignmentMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentHITs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HITs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="A list of HITs created by the requester"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="pnlSignInAssignment">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInAssignment">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnUpdateAssignments">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update Assignments"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUpdateAssignmentsMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignments">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pending Assignments:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlBonuses">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Worker Bonuses">
+                <Property name="tabTitle" type="java.lang.String" value="Worker Bonuses"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblSignInWorkerBonus" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInBonuses" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblBonusHITs" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnUploadCSVBonus" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnListBonusHITs" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sclBonusHITs" alignment="0" pref="330" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sclWorkerIDsBonus" min="-2" pref="192" max="-2" attributes="0"/>
+                                          <Component id="lblWorkerIDs" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblAssignmentIDs" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="sclAssignmentIDsBonus" min="-2" pref="192" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtBonusAmount" min="-2" pref="281" max="-2" attributes="0"/>
+                                                  <Component id="sclReason" min="-2" pref="281" max="-2" attributes="0"/>
+                                                  <Component id="btnSendBonus" min="-2" pref="281" max="-2" attributes="0"/>
+                                                  <Component id="lblReason" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblBonusAmount" min="-2" pref="281" max="-2" attributes="0"/>
+                                                  <Component id="btnDownloadCSVBonus" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="btnSelectAllWorkersBonus" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pnlSignInBonuses" max="32767" attributes="0"/>
+                          <Component id="lblSignInWorkerBonus" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="lblAssignmentIDs" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBonusHITs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblWorkerIDs" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="sclBonusHITs" pref="499" max="32767" attributes="0"/>
+                                  <Component id="sclWorkerIDsBonus" max="32767" attributes="0"/>
+                                  <Component id="sclAssignmentIDsBonus" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="lblBonusAmount" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtBonusAmount" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblReason" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sclReason" min="-2" pref="118" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnSendBonus" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnDownloadCSVBonus" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnListBonusHITs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSelectAllWorkersBonus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnUploadCSVBonus" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblWorkerIDs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Worker IDs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The IDs of the Workers being paid the bonus"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAssignmentIDs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Assignment IDs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The ID of the assignment for which the bonuses are paid"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblBonusAmount">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bonus Amount: (Dollars, eg. 2.50)"/>
+                <Property name="toolTipText" type="java.lang.String" value="The bonus to be paid to the workers, in USD"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBonusAmount">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblReason">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reason:"/>
+                <Property name="toolTipText" type="java.lang.String" value="A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclReason">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtReason">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnSendBonus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Send Bonus"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSendBonusMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblBonusHITs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Surveys:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The HITs created by the requester"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnListBonusHITs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List mturk Surveys"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnListBonusHITsMouseClicked"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclBonusHITs">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstBonusHITs">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new DefaultListModel()" type="code"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="lstBonusHITs" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnSelectAllWorkersBonus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Select All Workers"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSelectAllWorkersBonusMouseClicked"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclWorkerIDsBonus">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstWorkerIDsBonus">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new DefaultListModel()" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="sclAssignmentIDsBonus">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstAssignmentIDsBonus">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new DefaultListModel()" type="code"/>
+                    </Property>
+                    <Property name="focusable" type="boolean" value="false"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="pnlSignInBonuses">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInWorkerBonus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnDownloadCSVBonus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Download Worker CSV"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDownloadCSVBonusMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnUploadCSVBonus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Upload Worker CSV"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUploadCSVBonusMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlContactWorkers">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Contact Workers">
+                <Property name="tabTitle" type="java.lang.String" value="Contact Workers"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblSubject" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="sclMessage" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                          <Component id="lblMessage" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="txtContactSubject" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnContactMessage" min="-2" pref="473" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnListHITsContact" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="sclHITsContact" alignment="0" pref="232" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblHITsContact" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sclRecipients" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRecipients" min="-2" pref="142" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblSignInContactWorkers" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInContactWorkers" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pnlSignInContactWorkers" max="32767" attributes="0"/>
+                          <Component id="lblSignInContactWorkers" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblSubject" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRecipients" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHITsContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="sclHITsContact" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="txtContactSubject" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="lblMessage" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sclMessage" min="-2" pref="252" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="sclRecipients" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnListHITsContact" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="btnContactMessage" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace pref="224" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="txtContactSubject">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSubject">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Subject:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The subject line of the email message to send. Can include up to 200 characters"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMessage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Message:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The text of the email message to send. Can include up to 4,096 characters"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclMessage">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtContactMessage">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnContactMessage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Send Message"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnContactMessageMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRecipients">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Worker IDs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="An array of WorkerIds to notify, each WorkerId needs to be separated by a carriage return"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclRecipients">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtRecipients">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="sclHITsContact">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstHITsContact">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="lstHITsContact" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnListHITsContact">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List HITs"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnListHITsContactMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHITsContact">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HITs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The HITs created by the requester"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="pnlSignInContactWorkers">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInContactWorkers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlBlkUblkWorkers">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Block/UnBlock Workers">
+                <Property name="tabTitle" type="java.lang.String" value="Block/UnBlock Workers"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblBlkWorkerID" min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="sclBlockWorkers" min="-2" pref="271" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="208" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblBlkReason" min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="sclBlkReason" min="-2" pref="323" max="-2" attributes="0"/>
+                          <Component id="cmbxAction" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="btnBlockWorker" min="-2" pref="240" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnListBlockedWorkers" max="32767" attributes="0"/>
+                              <Component id="sclBlockList" alignment="1" min="-2" pref="238" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblBlockedWorkers" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblSignInBlockUnBlockWorkers" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInBlockUnBlockWorkers" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pnlSignInBlockUnBlockWorkers" max="32767" attributes="0"/>
+                          <Component id="lblSignInBlockUnBlockWorkers" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblBlkReason" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBlkWorkerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBlockedWorkers" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="sclBlockList" min="-2" pref="327" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnListBlockedWorkers" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="335" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="sclBlkReason" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="cmbxAction" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnBlockWorker" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="sclBlockWorkers" min="-2" pref="445" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="sclBlockList">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="lstBlockedWorkers">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblBlockedWorkers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Blocked Workers"/>
+                <Property name="toolTipText" type="java.lang.String" value="A list of all workers blocked by the requester"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblBlkWorkerID">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Worker IDs:"/>
+                <Property name="toolTipText" type="java.lang.String" value="The IDs of the Workers to block or unblock, each WorkerID must be separated by a carriage return  "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBlockWorker">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Block Workers"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBlockWorkerMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblBlkReason">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reason:"/>
+                <Property name="toolTipText" type="java.lang.String" value="A message that explains the reason for blocking the Worker. The Worker does not see this message"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclBlkReason">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtBlkReason">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnListBlockedWorkers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Populate Blocked Workers"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnListBlockedWorkersMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxAction">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Block Workers"/>
+                    <StringItem index="1" value="UnBlock Workers"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbxActionActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="sclBlockWorkers">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtBlockWorkerIDs">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="pnlSignInBlockUnBlockWorkers">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSignInBlockUnBlockWorkers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logged Out"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
