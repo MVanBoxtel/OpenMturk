@@ -27,7 +27,7 @@ public class Util {
     public static double calculatePrice(double reward, int assignments, boolean masters, boolean hyperbatch) {
         double fee = 1.2;
         if (assignments > 9 && !hyperbatch) {
-            fee += 0.4;
+            fee += 0.2;
         }
         if (masters) {
             fee += 0.05;
