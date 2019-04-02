@@ -55,31 +55,41 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlSignInAccount" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="380" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
-                              <Component id="lblAWSCreds" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="btnValidate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnLoadCredentials" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnSignout" min="-2" pref="179" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="416" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSecretKey" min="-2" pref="377" max="-2" attributes="0"/>
-                                  <Component id="txtAccessKey" min="-2" pref="377" max="-2" attributes="0"/>
-                                  <Component id="lblSecretKey" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblAccessKey" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="lblAWSCreds" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtSecretKey" min="-2" pref="377" max="-2" attributes="0"/>
+                                          <Component id="txtAccessKey" min="-2" pref="377" max="-2" attributes="0"/>
+                                          <Component id="lblSecretKey" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAccessKey" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnValidate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnSaveCredentials" max="32767" attributes="0"/>
+                                          <Component id="btnLoadCredentials" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnSignout" pref="179" max="32767" attributes="0"/>
+                                          <Component id="btnDeleteCredentials" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnOpenWebsite" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
                                   <Component id="lblEndpoint" alignment="0" min="-2" pref="313" max="-2" attributes="0"/>
@@ -92,7 +102,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                      <EmptySpace pref="390" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -103,7 +113,7 @@
                           <Component id="lblSignInAccount" pref="29" max="32767" attributes="0"/>
                           <Component id="pnlSignInAccount" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="lblAWSCreds" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="lblAccessKey" min="-2" max="-2" attributes="0"/>
@@ -119,7 +129,12 @@
                           <Component id="btnLoadCredentials" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSignout" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnSaveCredentials" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeleteCredentials" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       <Component id="lblEndpoint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -131,7 +146,7 @@
                           <Component id="btnOpenWebsite" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnGetBalance" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                      <EmptySpace pref="255" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -242,6 +257,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logged Out"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSaveCredentials">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save Credentials"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSaveCredentialsMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnDeleteCredentials">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Credentials"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeleteCredentialsMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

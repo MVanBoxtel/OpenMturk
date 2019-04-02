@@ -59,6 +59,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -161,6 +163,8 @@ public class OpenMturk extends javax.swing.JFrame {
         btnSignout = new javax.swing.JButton();
         pnlSignInAccount = new javax.swing.JPanel();
         lblSignInAccount = new javax.swing.JLabel();
+        btnSaveCredentials = new javax.swing.JButton();
+        btnDeleteCredentials = new javax.swing.JButton();
         pnlCreateHIT = new javax.swing.JPanel();
         txtHITTitle = new javax.swing.JTextField();
         lblHITTitle = new javax.swing.JLabel();
@@ -400,6 +404,20 @@ public class OpenMturk extends javax.swing.JFrame {
 
         lblSignInAccount.setText("Logged Out");
 
+        btnSaveCredentials.setText("Save Credentials");
+        btnSaveCredentials.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveCredentialsMouseClicked(evt);
+            }
+        });
+
+        btnDeleteCredentials.setText("Delete Credentials");
+        btnDeleteCredentials.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteCredentialsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
         pnlAccount.setLayout(pnlAccountLayout);
         pnlAccountLayout.setHorizontalGroup(
@@ -409,27 +427,33 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblSignInAccount)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignInAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAccountLayout.createSequentialGroup()
-                .addContainerGap(380, Short.MAX_VALUE)
+            .addGroup(pnlAccountLayout.createSequentialGroup()
                 .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAccountLayout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(lblAWSCreds))
-                    .addGroup(pnlAccountLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnValidate)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLoadCredentials)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSignout, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlAccountLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(416, 416, 416)
                         .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSecretKey, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAccessKey, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSecretKey)
-                            .addComponent(lblAccessKey, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlAccountLayout.createSequentialGroup()
+                                .addGap(205, 205, 205)
+                                .addComponent(lblAWSCreds))
+                            .addGroup(pnlAccountLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSecretKey, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAccessKey, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSecretKey)
+                                    .addComponent(lblAccessKey, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlAccountLayout.createSequentialGroup()
+                                .addComponent(btnValidate)
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSaveCredentials, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnLoadCredentials))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSignout, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(btnDeleteCredentials, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(pnlAccountLayout.createSequentialGroup()
+                        .addGap(350, 350, 350)
                         .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnOpenWebsite, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEndpoint, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +462,7 @@ public class OpenMturk extends javax.swing.JFrame {
                         .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAccountBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGetBalance))))
-                .addGap(360, 360, 360))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
         pnlAccountLayout.setVerticalGroup(
             pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,7 +470,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblSignInAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(pnlSignInAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(68, 68, 68)
+                .addGap(48, 48, 48)
                 .addComponent(lblAWSCreds)
                 .addGap(13, 13, 13)
                 .addComponent(lblAccessKey)
@@ -461,7 +485,11 @@ public class OpenMturk extends javax.swing.JFrame {
                     .addComponent(btnValidate)
                     .addComponent(btnLoadCredentials)
                     .addComponent(btnSignout))
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSaveCredentials)
+                    .addComponent(btnDeleteCredentials))
+                .addGap(111, 111, 111)
                 .addComponent(lblEndpoint)
                 .addGap(18, 18, 18)
                 .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -471,7 +499,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpenWebsite)
                     .addComponent(btnGetBalance))
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         btnOpenWebsite.getAccessibleContext().setAccessibleName("Reload");
@@ -1710,15 +1738,6 @@ public class OpenMturk extends javax.swing.JFrame {
             messageType = JOptionPane.INFORMATION_MESSAGE;
             pnlMain.setEnabled(true);
             setSignInIndicators(Color.GREEN);
-            try {
-                PrintWriter writer = new PrintWriter("credentials.txt", "UTF-8");
-                writer.println(txtAccessKey.getText().trim());
-                writer.println(txtSecretKey.getText().trim());
-                writer.close();
-            }
-            catch (Exception e) {
-                System.out.println("Error writing credentials to file.");
-            }
         }
         else {
             status = "Invalid credentials";
@@ -1734,6 +1753,19 @@ public class OpenMturk extends javax.swing.JFrame {
         showMessage(msgList, messageType);
     }//GEN-LAST:event_btnValidateMouseClicked
 
+    
+    private void saveCredentials() {
+        try {
+            PrintWriter writer = new PrintWriter("credentials.txt", "UTF-8");
+            writer.println(txtAccessKey.getText().trim());
+            writer.println(txtSecretKey.getText().trim());
+            writer.close();
+        }
+        catch (Exception e) {
+            System.out.println("Error writing credentials to file.");
+        }
+    }
+    
     private boolean validCredentials() {
         try {
             GetAccountBalanceRequest request = new GetAccountBalanceRequest();
@@ -2855,6 +2887,32 @@ public class OpenMturk extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnUploadCSVBonusMouseClicked
+
+    private void btnSaveCredentialsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveCredentialsMouseClicked
+        if (!(txtAccessKey.getText().isEmpty() || txtSecretKey.getText().isEmpty())) {
+            int selection = JOptionPane.showConfirmDialog(this, "Saving credentials on a public computer can pose a security risk, are you sure you wish to save your credentials?", "Warning", JOptionPane.YES_NO_OPTION);
+            if (selection == JOptionPane.YES_OPTION) {
+                saveCredentials();
+                showSingleMessage("File Status", "Credentials saved successfully", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        else {
+            showSingleMessage("File Status", "Credentials must be filled in in order to save them!", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnSaveCredentialsMouseClicked
+
+    private void btnDeleteCredentialsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteCredentialsMouseClicked
+        try {
+            Files.deleteIfExists(Paths.get("credentials.txt"));
+            showSingleMessage("File Status", "Credentials successfully deleted", JOptionPane.INFORMATION_MESSAGE);
+            txtAccessKey.setText("");
+            txtSecretKey.setText("");
+        }
+        catch (Exception e) {
+            showSingleMessage("File Status", "Unable to delete credentials", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteCredentialsMouseClicked
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -3021,7 +3079,7 @@ public class OpenMturk extends javax.swing.JFrame {
             title = "Information";
         }
 
-        JOptionPane.showMessageDialog(null, messageList, title, messageType);
+        JOptionPane.showMessageDialog(this, messageList, title, messageType);
     }
 
     private void showSingleMessage(String title, String message, int messageType) {
@@ -3134,6 +3192,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnBlockWorker;
     private javax.swing.JButton btnContactMessage;
     private javax.swing.JButton btnCreateHIT;
+    private javax.swing.JButton btnDeleteCredentials;
     private javax.swing.JButton btnDeleteHIT;
     private javax.swing.JButton btnDownloadCSVBonus;
     private javax.swing.JButton btnExpireHIT;
@@ -3146,6 +3205,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnLoadCredentials;
     private javax.swing.JButton btnOpenWebsite;
     private javax.swing.JButton btnRejectSelected;
+    private javax.swing.JButton btnSaveCredentials;
     private javax.swing.JButton btnSelectAllWorkersBonus;
     private javax.swing.JButton btnSendBonus;
     private javax.swing.JButton btnSignout;
