@@ -36,6 +36,8 @@ import com.amazonaws.services.mturk.model.ListAssignmentsForHITRequest;
 import com.amazonaws.services.mturk.model.ListAssignmentsForHITResult;
 import com.amazonaws.services.mturk.model.ListHITsRequest;
 import com.amazonaws.services.mturk.model.ListHITsResult;
+import com.amazonaws.services.mturk.model.ListQualificationTypesRequest;
+import com.amazonaws.services.mturk.model.ListQualificationTypesResult;
 import com.amazonaws.services.mturk.model.ListWorkerBlocksRequest;
 import com.amazonaws.services.mturk.model.ListWorkerBlocksResult;
 import com.amazonaws.services.mturk.model.Locale;
@@ -49,6 +51,7 @@ import com.amazonaws.services.mturk.model.ServiceException;
 import com.amazonaws.services.mturk.model.SendBonusRequest;
 import com.amazonaws.services.mturk.model.UpdateExpirationForHITRequest;
 import com.amazonaws.services.mturk.model.UpdateExpirationForHITResult;
+import com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.GridLayout;
@@ -85,6 +88,7 @@ public class OpenMturk extends javax.swing.JFrame {
     AmazonMTurk client;
     List<Assignment> assignments;
     HashMap<String, String> ghitHM;
+    HashMap<String, String> gQualificationHM;
     String submitEndpoint = "";
     MessageList gErrorMessageList;
 
@@ -107,11 +111,13 @@ public class OpenMturk extends javax.swing.JFrame {
         setSelectionModel(lstBonusHITs);
         setSelectionModel(lstAssignmentHITs);
         setSelectionModel(lstHITsContact);
+        setSelectionModel(lstQualificationTypes);
         lstLocales.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstListHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstAssignmentHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstBonusHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstHITsContact.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lstQualificationTypes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         populateCountries();
         setSignInIndicators(Color.RED);
         checkAndLoadCredentials();
@@ -221,6 +227,24 @@ public class OpenMturk extends javax.swing.JFrame {
         sclLocales = new javax.swing.JScrollPane();
         lstLocales = new javax.swing.JList<>();
         cmbxLocaleComparator = new javax.swing.JComboBox<>();
+        pnlQualifications = new javax.swing.JPanel();
+        lblSignInQualification = new javax.swing.JLabel();
+        pnlSignInQualification = new javax.swing.JPanel();
+        sclQualificationTypes = new javax.swing.JScrollPane();
+        lstQualificationTypes = new javax.swing.JList<>();
+        lblCreateQualification = new javax.swing.JLabel();
+        chkAutoGranted = new javax.swing.JCheckBox();
+        txtQualificationName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        sclQualificationDescription = new javax.swing.JScrollPane();
+        txtQualficationDescription = new javax.swing.JTextArea();
+        lblQualificationDesc = new javax.swing.JLabel();
+        txtQualificationKeywords = new javax.swing.JTextField();
+        lblQualificationKeywords = new javax.swing.JLabel();
+        btnDeleteQualification = new javax.swing.JButton();
+        btnCreateQualification = new javax.swing.JButton();
+        btnListQualification = new javax.swing.JButton();
+        btnUpdateQualification = new javax.swing.JButton();
         pnlHITDetail = new javax.swing.JPanel();
         btnDeleteHIT = new javax.swing.JButton();
         btnListHITs = new javax.swing.JButton();
@@ -819,7 +843,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSignInCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSignInCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(92, 92, 92)
                 .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHITTitle)
                     .addComponent(lblExternalURL))
@@ -918,6 +942,149 @@ public class OpenMturk extends javax.swing.JFrame {
         );
 
         pnlMain.addTab("Create HIT", pnlCreateHIT);
+
+        lblSignInQualification.setText("Logged Out");
+
+        javax.swing.GroupLayout pnlSignInQualificationLayout = new javax.swing.GroupLayout(pnlSignInQualification);
+        pnlSignInQualification.setLayout(pnlSignInQualificationLayout);
+        pnlSignInQualificationLayout.setHorizontalGroup(
+            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 34, Short.MAX_VALUE)
+        );
+        pnlSignInQualificationLayout.setVerticalGroup(
+            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
+        lstQualificationTypes.setName("lstQualificationTypes"); // NOI18N
+        sclQualificationTypes.setViewportView(lstQualificationTypes);
+
+        lblCreateQualification.setText("Create Qualification Type:");
+
+        chkAutoGranted.setSelected(true);
+        chkAutoGranted.setText("Auto Granted");
+
+        lblName.setText("<html>Name:<br>\n(non updatable)</html>");
+
+        txtQualficationDescription.setColumns(20);
+        txtQualficationDescription.setRows(5);
+        sclQualificationDescription.setViewportView(txtQualficationDescription);
+
+        lblQualificationDesc.setText("Description:");
+
+        lblQualificationKeywords.setText("<html>Keywords:<br>\n(comma separated, <br>\nnon updatable)</html>");
+
+        btnDeleteQualification.setText("Delete Selected Qualification");
+        btnDeleteQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteQualificationMouseClicked(evt);
+            }
+        });
+
+        btnCreateQualification.setText("Create Qualification");
+        btnCreateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCreateQualificationMouseClicked(evt);
+            }
+        });
+
+        btnListQualification.setText("List Qualifications");
+        btnListQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnListQualificationMouseClicked(evt);
+            }
+        });
+
+        btnUpdateQualification.setText("Update Selected Qualification");
+        btnUpdateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUpdateQualificationMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
+        pnlQualifications.setLayout(pnlQualificationsLayout);
+        pnlQualificationsLayout.setHorizontalGroup(
+            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblCreateQualification))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
+                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblQualificationDesc)
+                                    .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                                        .addComponent(btnCreateQualification)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnUpdateQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(chkAutoGranted)
+                                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnListQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(207, 207, 207))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblSignInQualification)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlQualificationsLayout.setVerticalGroup(
+            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(134, 134, 134)
+                .addComponent(lblCreateQualification)
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQualificationDesc)
+                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(chkAutoGranted))
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnListQualification)
+                .addGap(15, 15, 15)
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreateQualification)
+                    .addComponent(btnUpdateQualification))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteQualification)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+
+        pnlMain.addTab("Qualification Management", pnlQualifications);
 
         btnDeleteHIT.setText("Delete HIT");
         btnDeleteHIT.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2913,6 +3080,81 @@ public class OpenMturk extends javax.swing.JFrame {
             showSingleMessage("File Status", "Unable to delete credentials", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteCredentialsMouseClicked
+
+    private void btnCreateQualificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateQualificationMouseClicked
+        try {
+            CreateQualificationTypeRequest request = new CreateQualificationTypeRequest();
+            request.setName(txtQualificationName.getText());
+            request.setDescription(txtQualficationDescription.getText());
+            String keywords = txtQualificationKeywords.getText().replaceAll("\\s+","");
+            request.setKeywords(keywords);
+            request.setAutoGranted(chkAutoGranted.isSelected());
+            request.setQualificationTypeStatus(QualificationTypeStatus.Active);
+            client.createQualificationType(request);
+            btnListQualificationMouseClicked(evt);
+            showSingleMessage("Qualifications", "Qualification created successfully!", JOptionPane.INFORMATION_MESSAGE);
+            txtQualificationName.setText("");
+            txtQualficationDescription.setText("");
+            txtQualificationKeywords.setText("");
+        }
+        catch (Exception e) {
+            showSingleMessage("Qualification Status", "Unable to create qualification type, check your inputs", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCreateQualificationMouseClicked
+
+    private void btnListQualificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListQualificationMouseClicked
+        try {
+            ListQualificationTypesRequest request = new ListQualificationTypesRequest();
+            request.setMustBeOwnedByCaller(true);
+            request.setMustBeRequestable(true);
+            ListQualificationTypesResult result = client.listQualificationTypes(request);
+            List<QualificationType> qtypes = result.getQualificationTypes();
+            HashMap<String, String> qtypeHM = new HashMap<>();
+            for (int i = 0; i < qtypes.size(); i++) {
+                String qtypeID = qtypes.get(i).getQualificationTypeId();
+                String qtypeName = qtypes.get(i).getName();
+                qtypeHM.put(qtypeName, qtypeID);
+            }
+            String qtypeNames[] = (String[])qtypeHM.keySet().toArray(new String[qtypeHM.size()]);
+            lstQualificationTypes.setListData(qtypeNames);
+            gQualificationHM = qtypeHM;
+        } catch (Exception e) {
+            showSingleMessage("Qualifications", "Unable to fetch qualification types", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnListQualificationMouseClicked
+
+    private void btnDeleteQualificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteQualificationMouseClicked
+        try {
+            String qtypeID = gQualificationHM.get(lstQualificationTypes.getSelectedValue());
+            DeleteQualificationTypeRequest request = new DeleteQualificationTypeRequest();
+            request.setQualificationTypeId(qtypeID);
+            client.deleteQualificationType(request);
+            btnListQualificationMouseClicked(evt);
+            showSingleMessage("Qualifications", "Qualification deleted successfully!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            showSingleMessage("Qualifications", "Unable to delete qualification type", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteQualificationMouseClicked
+
+    private void btnUpdateQualificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateQualificationMouseClicked
+        try {
+            if (!lstQualificationTypes.isSelectionEmpty()) {
+                String qtypeID = gQualificationHM.get(lstQualificationTypes.getSelectedValue());
+                UpdateQualificationTypeRequest request = new UpdateQualificationTypeRequest();
+                request.setQualificationTypeId(qtypeID);
+                request.setDescription(txtQualficationDescription.getText());
+                request.setAutoGranted(chkAutoGranted.isSelected());
+                client.updateQualificationType(request);
+                showSingleMessage("Qualifications", "Qualification updated successfully!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                showSingleMessage("Qualifications", "You must select a qualification to update", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            showSingleMessage("Qualification Status", "Unable to update qualification type, check your inputs", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnUpdateQualificationMouseClicked
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -2944,6 +3186,21 @@ public class OpenMturk extends javax.swing.JFrame {
             hitHashMap.put(hitName, hitID);
         }
         return hitHashMap;
+    }
+    
+    private void setQualificationTypeDetails() {
+        if (!lstQualificationTypes.isSelectionEmpty()) {
+            String qtypeID = gQualificationHM.get(lstQualificationTypes.getSelectedValue());
+            GetQualificationTypeRequest request = new GetQualificationTypeRequest();
+            request.setQualificationTypeId(qtypeID);
+            GetQualificationTypeResult result = client.getQualificationType(request);
+            QualificationType qtype = result.getQualificationType();
+            
+            txtQualificationName.setText(qtype.getName());
+            txtQualficationDescription.setText(qtype.getDescription());
+            txtQualificationKeywords.setText(qtype.getKeywords());
+            chkAutoGranted.setSelected(qtype.getAutoGranted());
+        }
     }
     
     private void setHITDetails() {
@@ -3105,7 +3362,8 @@ public class OpenMturk extends javax.swing.JFrame {
             pnlSignInBonuses,
             pnlSignInContactWorkers,
             pnlSignInCreateHIT,
-            pnlSignInHITDetail
+            pnlSignInHITDetail,
+            pnlSignInQualification
         };
         javax.swing.JLabel[] signInLabels = {
             lblSignInAccount,
@@ -3114,7 +3372,8 @@ public class OpenMturk extends javax.swing.JFrame {
             lblSignInWorkerBonus,
             lblSignInContactWorkers,
             lblSignInCreateHIT,
-            lblSignInHITDetail
+            lblSignInHITDetail,
+            lblSignInQualification
         };
         for (int i = 0; i < signInPanels.length; i++) {
             signInPanels[i].setBackground(color);
@@ -3181,6 +3440,9 @@ public class OpenMturk extends javax.swing.JFrame {
             else if (!e.getValueIsAdjusting() && actionList.getName() == "lstHITsContact") {
                 setWorkersContact();
             }
+            else if (!e.getValueIsAdjusting() && actionList.getName() == "lstQualificationTypes") {
+                setQualificationTypeDetails();
+            }
         }
     }
     
@@ -3192,8 +3454,10 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnBlockWorker;
     private javax.swing.JButton btnContactMessage;
     private javax.swing.JButton btnCreateHIT;
+    private javax.swing.JButton btnCreateQualification;
     private javax.swing.JButton btnDeleteCredentials;
     private javax.swing.JButton btnDeleteHIT;
+    private javax.swing.JButton btnDeleteQualification;
     private javax.swing.JButton btnDownloadCSVBonus;
     private javax.swing.JButton btnExpireHIT;
     private javax.swing.JButton btnGetBalance;
@@ -3202,6 +3466,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnListHITs;
     private javax.swing.JButton btnListHITsAssignment;
     private javax.swing.JButton btnListHITsContact;
+    private javax.swing.JButton btnListQualification;
     private javax.swing.JButton btnLoadCredentials;
     private javax.swing.JButton btnOpenWebsite;
     private javax.swing.JButton btnRejectSelected;
@@ -3211,10 +3476,12 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnSignout;
     private javax.swing.JButton btnUpdateAssignments;
     private javax.swing.JButton btnUpdateHIT;
+    private javax.swing.JButton btnUpdateQualification;
     private javax.swing.JButton btnUploadCSVBonus;
     private javax.swing.JButton btnValidate;
     private javax.swing.JCheckBox chkAdultOnly;
     private javax.swing.JCheckBox chkAdultsOnlyEnabled;
+    private javax.swing.JCheckBox chkAutoGranted;
     private javax.swing.JCheckBox chkHITApprovalEnabled;
     private javax.swing.JCheckBox chkHITsApprovedEnabled;
     private javax.swing.JCheckBox chkLocale;
@@ -3250,6 +3517,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblBonusAmount;
     private javax.swing.JLabel lblBonusHITs;
     private javax.swing.JLabel lblCountry;
+    private javax.swing.JLabel lblCreateQualification;
     private javax.swing.JLabel lblCreationTimeDetail;
     private javax.swing.JLabel lblDeadline;
     private javax.swing.JLabel lblDescription;
@@ -3281,7 +3549,10 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblMaxAssignmentsDetail;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMicroBatch;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNumofParticipantsUnit;
+    private javax.swing.JLabel lblQualificationDesc;
+    private javax.swing.JLabel lblQualificationKeywords;
     private javax.swing.JLabel lblQualifications;
     private javax.swing.JLabel lblQualificationsDetail;
     private javax.swing.JLabel lblReason;
@@ -3298,6 +3569,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignInContactWorkers;
     private javax.swing.JLabel lblSignInCreateHIT;
     private javax.swing.JLabel lblSignInHITDetail;
+    private javax.swing.JLabel lblSignInQualification;
     private javax.swing.JLabel lblSignInWorkerBonus;
     private javax.swing.JLabel lblSubject;
     private javax.swing.JLabel lblSubmitTime;
@@ -3312,6 +3584,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JList<String> lstHITsContact;
     private javax.swing.JList<String> lstListHITs;
     private javax.swing.JList<String> lstLocales;
+    private javax.swing.JList<String> lstQualificationTypes;
     private javax.swing.JList<String> lstWorkerIDsBonus;
     private javax.swing.JLayeredPane lyrpnMicrobatchSelect;
     private javax.swing.JPanel pnlAccount;
@@ -3322,6 +3595,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCreateHIT;
     private javax.swing.JPanel pnlHITDetail;
     private javax.swing.JTabbedPane pnlMain;
+    private javax.swing.JPanel pnlQualifications;
     private javax.swing.JPanel pnlSignInAccount;
     private javax.swing.JPanel pnlSignInAssignment;
     private javax.swing.JPanel pnlSignInBlockUnBlockWorkers;
@@ -3329,6 +3603,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSignInContactWorkers;
     private javax.swing.JPanel pnlSignInCreateHIT;
     private javax.swing.JPanel pnlSignInHITDetail;
+    private javax.swing.JPanel pnlSignInQualification;
     private javax.swing.JScrollPane sclAssignmentHITs;
     private javax.swing.JScrollPane sclAssignmentIDsBonus;
     private javax.swing.JScrollPane sclAssignments;
@@ -3340,6 +3615,8 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JScrollPane sclListHITs;
     private javax.swing.JScrollPane sclLocales;
     private javax.swing.JScrollPane sclMessage;
+    private javax.swing.JScrollPane sclQualificationDescription;
+    private javax.swing.JScrollPane sclQualificationTypes;
     private javax.swing.JScrollPane sclReason;
     private javax.swing.JScrollPane sclRecipients;
     private javax.swing.JScrollPane sclRequesterFeedback;
@@ -3370,6 +3647,9 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JTextArea txtKeywords;
     private javax.swing.JTextField txtMaxAssignments;
     private javax.swing.JTextField txtMaxAssignmentsDetail;
+    private javax.swing.JTextArea txtQualficationDescription;
+    private javax.swing.JTextField txtQualificationKeywords;
+    private javax.swing.JTextField txtQualificationName;
     private javax.swing.JTextArea txtReason;
     private javax.swing.JTextArea txtRecipients;
     private javax.swing.JTextArea txtRequesterFeedback;
