@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -90,5 +92,19 @@ public class Util {
         }
         String string = builder.toString();
         return string;
+    }
+    
+    public static String[] getLocales() {
+        String[] locales = java.util.Locale.getISOCountries();
+        List<String> countries = new ArrayList<>();
+        for (int i = 0; i < locales.length; i++) {
+            java.util.Locale locale = new java.util.Locale("", locales[i]);
+            String name = locale.getDisplayCountry();
+            countries.add(name + " - " + locales[i]);
+        }
+        Collections.sort(countries);
+        String[] countryArray = new String[countries.size()];
+        countryArray = countries.toArray(countryArray);
+        return countryArray;
     }
 }

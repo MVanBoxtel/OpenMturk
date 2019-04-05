@@ -54,6 +54,7 @@ import com.amazonaws.services.mturk.model.UpdateExpirationForHITResult;
 import com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dialog;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.File;
@@ -89,6 +90,7 @@ public class OpenMturk extends javax.swing.JFrame {
     List<Assignment> assignments;
     HashMap<String, String> ghitHM;
     HashMap<String, String> gQualificationHM;
+    HashMap<String, String> systemQtypeHM;
     String submitEndpoint = "";
     MessageList gErrorMessageList;
 
@@ -141,6 +143,23 @@ public class OpenMturk extends javax.swing.JFrame {
         catch(Exception e) {
             //ehh, doesn't matter... if no file or something, just don't do anything
         }
+    }
+    
+    private HashMap<String, String> getSystemQualificationMappings() {
+        HashMap<String, String> systemQtypeHM = new HashMap<String, String>();
+        String mastersID;
+        if (submitEndpoint == "workersandbox.") {
+            mastersID = "2ARFPLSP75KLA8M8DH1HTEQVJT3SY6";
+        }
+        else {
+            mastersID = "2ARFPLSP75KLA8M8DH1HTEQVJT3SY6";
+        }
+        systemQtypeHM.put("Masters", mastersID);
+        systemQtypeHM.put("HITs Approved", "00000000000000000040");
+        systemQtypeHM.put("Locale", "00000000000000000071");
+        systemQtypeHM.put("Adult Workers", "00000000000000000060");
+        systemQtypeHM.put("Approval Rate", "000000000000000000L0");
+        return systemQtypeHM;
     }
 
     /**
@@ -245,6 +264,7 @@ public class OpenMturk extends javax.swing.JFrame {
         btnCreateQualification = new javax.swing.JButton();
         btnListQualification = new javax.swing.JButton();
         btnUpdateQualification = new javax.swing.JButton();
+        btntest = new javax.swing.JButton();
         pnlHITDetail = new javax.swing.JPanel();
         btnDeleteHIT = new javax.swing.JButton();
         btnListHITs = new javax.swing.JButton();
@@ -498,7 +518,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblAWSCreds)
                 .addGap(13, 13, 13)
                 .addComponent(lblAccessKey)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(txtAccessKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblSecretKey)
@@ -523,7 +543,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpenWebsite)
                     .addComponent(btnGetBalance))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         btnOpenWebsite.getAccessibleContext().setAccessibleName("Reload");
@@ -1002,6 +1022,13 @@ public class OpenMturk extends javax.swing.JFrame {
             }
         });
 
+        btntest.setText("jButton1");
+        btntest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntestMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
         pnlQualifications.setLayout(pnlQualificationsLayout);
         pnlQualificationsLayout.setHorizontalGroup(
@@ -1045,6 +1072,10 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblSignInQualification)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                .addGap(664, 664, 664)
+                .addComponent(btntest)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlQualificationsLayout.setVerticalGroup(
             pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1052,7 +1083,9 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(134, 134, 134)
+                .addGap(64, 64, 64)
+                .addComponent(btntest)
+                .addGap(45, 45, 45)
                 .addComponent(lblCreateQualification)
                 .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlQualificationsLayout.createSequentialGroup()
@@ -1905,6 +1938,7 @@ public class OpenMturk extends javax.swing.JFrame {
             messageType = JOptionPane.INFORMATION_MESSAGE;
             pnlMain.setEnabled(true);
             setSignInIndicators(Color.GREEN);
+            systemQtypeHM = getSystemQualificationMappings();
         }
         else {
             status = "Invalid credentials";
@@ -3155,6 +3189,11 @@ public class OpenMturk extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnUpdateQualificationMouseClicked
+
+    private void btntestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntestMouseClicked
+        QualificationForm fm = new QualificationForm(this, true, client, systemQtypeHM);
+        fm.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btntestMouseClicked
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -3479,6 +3518,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateQualification;
     private javax.swing.JButton btnUploadCSVBonus;
     private javax.swing.JButton btnValidate;
+    private javax.swing.JButton btntest;
     private javax.swing.JCheckBox chkAdultOnly;
     private javax.swing.JCheckBox chkAdultsOnlyEnabled;
     private javax.swing.JCheckBox chkAutoGranted;
