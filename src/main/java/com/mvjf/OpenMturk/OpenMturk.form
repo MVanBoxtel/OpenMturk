@@ -333,81 +333,21 @@
                                   </Group>
                                   <Component id="lblHITLifetime" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblHITApprovalRate" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblAdultWorker" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="cmbxHITApprovalRateComparator" min="-2" pref="119" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                                          <Component id="txtHITApprovalRate" min="-2" pref="45" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                                          <Component id="cmbxHITsApprovedComparator" min="-2" pref="118" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                          <Component id="txtHITsApproved" min="-2" pref="47" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                                          <Component id="lblUnitHitApprovalRate" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Component id="chkHITApprovalEnabled" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                                          <Component id="lblHitsApprovedUnits" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="chkHITsApprovedEnabled" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="chkAdultOnly" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="chkAdultsOnlyEnabled" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblMasters" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="chkMastersExists" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="chkMastersEnabled" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblHITsApproved" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lyrpnMicrobatchSelect" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblEstimatedCost" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnCreateHIT" min="-2" pref="247" max="-2" attributes="0"/>
-                                          </Group>
+                              <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lyrpnMicrobatchSelect" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblEstimatedCost" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnCreateHIT" min="-2" pref="247" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblLocale" min="-2" pref="89" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblCountry" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblQualifications" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                                          <Component id="sclLocales" min="-2" pref="254" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cmbxLocaleComparator" min="-2" pref="118" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="sclHITQualificationRequirements" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnModifyQualificationRequirements" alignment="0" pref="316" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="lblQualifications" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -422,21 +362,13 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblSignInCreateHIT" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="pnlSignInCreateHIT" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="chkLocale" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace pref="1295" max="32767" attributes="0"/>
+                      <Component id="lblSignInCreateHIT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlSignInCreateHIT" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -464,31 +396,20 @@
                               <Component id="lblKeywords" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="sclpnKeywords" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Component id="txtExternalURL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblQualifications" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblCountry" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="lblLocale" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chkLocale" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmbxLocaleComparator" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="sclLocales" min="-2" pref="155" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sclHITQualificationRequirements" min="-2" pref="148" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnModifyQualificationRequirements" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="lblMaxAssignments" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -520,35 +441,8 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblHITLifetime" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblHITsApproved" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtHITsApproved" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="chkHITsApprovedEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbxHITsApprovedComparator" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblHitsApprovedUnits" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblAdultWorker" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkAdultOnly" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkAdultsOnlyEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblHITApprovalRate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtHITApprovalRate" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="cmbxHITApprovalRateComparator" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUnitHitApprovalRate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkHITApprovalEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblMasters" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkMastersExists" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkMastersEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="lyrpnMicrobatchSelect" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -696,120 +590,6 @@
                 <Property name="toolTipText" type="java.lang.String" value="Conditions that a Worker&apos;s Qualifications must meet in order to accept the HIT"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblLocale">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Locale - "/>
-                <Property name="toolTipText" type="java.lang.String" value="The location of the Worker"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCountry">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Country"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkLocale">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enabled"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblHITsApproved">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="HITs Approved -"/>
-                <Property name="toolTipText" type="java.lang.String" value="Specifies the total number of HITs submitted by a Worker that have been approved"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtHITsApproved">
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkHITsApprovedEnabled">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enabled"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblAdultWorker">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Adult Workers Only - "/>
-                <Property name="toolTipText" type="java.lang.String" value="Requires workers to acknowledge that they are over 18 and that they agree to work on potentially offensive content"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkAdultOnly">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="True"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkAdultsOnlyEnabled">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enabled"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblHITApprovalRate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="HIT Approval Rate -"/>
-                <Property name="toolTipText" type="java.lang.String" value="The percentage of assignments the Worker has submitted that were subsequently approved by the Requester, over all assignments the Worker has submitted"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtHITApprovalRate">
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkHITApprovalEnabled">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enabled"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblMasters">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Masters -"/>
-                <Property name="toolTipText" type="java.lang.String" value="Masters are Workers who have demonstrated superior performance while completing thousands of HITs across the Mechanical Turk marketplace"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkMastersExists">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="True"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMastersExistsActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chkMastersEnabled">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enabled"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMastersEnabledActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbxHITsApprovedComparator">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="LessThan"/>
-                    <StringItem index="1" value="LessThanOrEqualTo"/>
-                    <StringItem index="2" value="GreaterThan"/>
-                    <StringItem index="3" value="GreaterThanOrEqualTo"/>
-                    <StringItem index="4" value="EqualTo"/>
-                    <StringItem index="5" value="NotEqualTo"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbxHITApprovalRateComparator">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="LessThan"/>
-                    <StringItem index="1" value="LessThanOrEqualTo"/>
-                    <StringItem index="2" value="GreaterThan"/>
-                    <StringItem index="3" value="GreaterThanOrEqualTo"/>
-                    <StringItem index="4" value="EqualTo"/>
-                    <StringItem index="5" value="NotEqualTo"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Container class="javax.swing.JPanel" name="pnlSignInCreateHIT">
 
               <Layout>
@@ -828,19 +608,6 @@
             <Component class="javax.swing.JLabel" name="lblSignInCreateHIT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logged Out"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblUnitHitApprovalRate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="%"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblHitsApprovedUnits">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="12" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="# of HITs"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblRewardUnits">
@@ -941,42 +708,36 @@
                 <Property name="text" type="java.lang.String" value="Estimated Cost:"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="sclLocales">
+            <Container class="javax.swing.JScrollPane" name="sclHITQualificationRequirements">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="lstLocales">
+                <Component class="javax.swing.JList" name="lstHITQualificationRequirements">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="lstHITQualificationRequirementsPropertyChange"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JComboBox" name="cmbxLocaleComparator">
+            <Component class="javax.swing.JButton" name="btnModifyQualificationRequirements">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="EqualTo"/>
-                    <StringItem index="1" value="NotEqualTo"/>
-                    <StringItem index="2" value="In"/>
-                    <StringItem index="3" value="NotIn"/>
-                  </StringArray>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Modify Qualification Requirements"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbxLocaleComparatorActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnModifyQualificationRequirementsMouseClicked"/>
               </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1045,11 +806,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlSignInQualification" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="664" max="-2" attributes="0"/>
-                      <Component id="btntest" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -1059,9 +815,7 @@
                           <Component id="pnlSignInQualification" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSignInQualification" min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="btntest" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       <Component id="lblCreateQualification" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -1218,14 +972,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnUpdateQualificationMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btntest">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btntestMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

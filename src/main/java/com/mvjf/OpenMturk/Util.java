@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JTextField;
 
 /**
  *
@@ -106,5 +107,13 @@ public class Util {
         String[] countryArray = new String[countries.size()];
         countryArray = countries.toArray(countryArray);
         return countryArray;
+    }
+    
+    public static int validatePositiveIntegerWithComparator(JTextField field) {
+        int value = Integer.parseInt(field.getText().trim());
+        if (value < 0 || value > 100) {
+            throw new NumberFormatException();
+        }
+        return value;
     }
 }

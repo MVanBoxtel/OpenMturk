@@ -14,7 +14,6 @@ import com.amazonaws.services.mturk.AmazonMTurkClientBuilder;
 import com.amazonaws.services.mturk.model.ApproveAssignmentRequest;
 import com.amazonaws.services.mturk.model.Assignment;
 import com.amazonaws.services.mturk.model.AssignmentStatus;
-import com.amazonaws.services.mturk.model.Comparator;
 import com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITRequest;
 import com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult;
 import com.amazonaws.services.mturk.model.GetAccountBalanceRequest;
@@ -40,7 +39,6 @@ import com.amazonaws.services.mturk.model.ListQualificationTypesRequest;
 import com.amazonaws.services.mturk.model.ListQualificationTypesResult;
 import com.amazonaws.services.mturk.model.ListWorkerBlocksRequest;
 import com.amazonaws.services.mturk.model.ListWorkerBlocksResult;
-import com.amazonaws.services.mturk.model.Locale;
 import com.amazonaws.services.mturk.model.NotifyWorkersRequest;
 import com.amazonaws.services.mturk.model.QualificationRequirement;
 import com.amazonaws.services.mturk.model.QualificationType;
@@ -54,7 +52,6 @@ import com.amazonaws.services.mturk.model.UpdateExpirationForHITResult;
 import com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest;
 import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Dialog;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.File;
@@ -71,6 +68,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
@@ -90,7 +88,7 @@ public class OpenMturk extends javax.swing.JFrame {
     List<Assignment> assignments;
     HashMap<String, String> ghitHM;
     HashMap<String, String> gQualificationHM;
-    HashMap<String, String> systemQtypeHM;
+    HashMap<String, QualificationRequirement> gQreqHM = new HashMap<>();
     String submitEndpoint = "";
     MessageList gErrorMessageList;
 
@@ -114,13 +112,11 @@ public class OpenMturk extends javax.swing.JFrame {
         setSelectionModel(lstAssignmentHITs);
         setSelectionModel(lstHITsContact);
         setSelectionModel(lstQualificationTypes);
-        lstLocales.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstListHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstAssignmentHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstBonusHITs.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstHITsContact.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lstQualificationTypes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        populateCountries();
         setSignInIndicators(Color.RED);
         checkAndLoadCredentials();
     }
@@ -213,27 +209,8 @@ public class OpenMturk extends javax.swing.JFrame {
         lblExternalURL = new javax.swing.JLabel();
         txtExternalURL = new javax.swing.JTextField();
         lblQualifications = new javax.swing.JLabel();
-        lblLocale = new javax.swing.JLabel();
-        lblCountry = new javax.swing.JLabel();
-        chkLocale = new javax.swing.JCheckBox();
-        lblHITsApproved = new javax.swing.JLabel();
-        txtHITsApproved = new javax.swing.JTextField();
-        chkHITsApprovedEnabled = new javax.swing.JCheckBox();
-        lblAdultWorker = new javax.swing.JLabel();
-        chkAdultOnly = new javax.swing.JCheckBox();
-        chkAdultsOnlyEnabled = new javax.swing.JCheckBox();
-        lblHITApprovalRate = new javax.swing.JLabel();
-        txtHITApprovalRate = new javax.swing.JTextField();
-        chkHITApprovalEnabled = new javax.swing.JCheckBox();
-        lblMasters = new javax.swing.JLabel();
-        chkMastersExists = new javax.swing.JCheckBox();
-        chkMastersEnabled = new javax.swing.JCheckBox();
-        cmbxHITsApprovedComparator = new javax.swing.JComboBox<>();
-        cmbxHITApprovalRateComparator = new javax.swing.JComboBox<>();
         pnlSignInCreateHIT = new javax.swing.JPanel();
         lblSignInCreateHIT = new javax.swing.JLabel();
-        lblUnitHitApprovalRate = new javax.swing.JLabel();
-        lblHitsApprovedUnits = new javax.swing.JLabel();
         lblRewardUnits = new javax.swing.JLabel();
         lblAssignmentDurationUnit = new javax.swing.JLabel();
         lblAutoApprovalUnit = new javax.swing.JLabel();
@@ -243,9 +220,9 @@ public class OpenMturk extends javax.swing.JFrame {
         chkMicroBatch = new javax.swing.JCheckBox();
         lblMicroBatch = new javax.swing.JLabel();
         lblEstimatedCost = new javax.swing.JLabel();
-        sclLocales = new javax.swing.JScrollPane();
-        lstLocales = new javax.swing.JList<>();
-        cmbxLocaleComparator = new javax.swing.JComboBox<>();
+        sclHITQualificationRequirements = new javax.swing.JScrollPane();
+        lstHITQualificationRequirements = new javax.swing.JList<>();
+        btnModifyQualificationRequirements = new javax.swing.JButton();
         pnlQualifications = new javax.swing.JPanel();
         lblSignInQualification = new javax.swing.JLabel();
         pnlSignInQualification = new javax.swing.JPanel();
@@ -264,7 +241,6 @@ public class OpenMturk extends javax.swing.JFrame {
         btnCreateQualification = new javax.swing.JButton();
         btnListQualification = new javax.swing.JButton();
         btnUpdateQualification = new javax.swing.JButton();
-        btntest = new javax.swing.JButton();
         pnlHITDetail = new javax.swing.JPanel();
         btnDeleteHIT = new javax.swing.JButton();
         btnListHITs = new javax.swing.JButton();
@@ -614,51 +590,6 @@ public class OpenMturk extends javax.swing.JFrame {
         lblQualifications.setText("Qualifications:");
         lblQualifications.setToolTipText("Conditions that a Worker's Qualifications must meet in order to accept the HIT");
 
-        lblLocale.setText("Locale - ");
-        lblLocale.setToolTipText("The location of the Worker");
-
-        lblCountry.setText("Country");
-
-        chkLocale.setText("Enabled");
-
-        lblHITsApproved.setText("HITs Approved -");
-        lblHITsApproved.setToolTipText("Specifies the total number of HITs submitted by a Worker that have been approved");
-
-        chkHITsApprovedEnabled.setText("Enabled");
-
-        lblAdultWorker.setText("Adult Workers Only - ");
-        lblAdultWorker.setToolTipText("Requires workers to acknowledge that they are over 18 and that they agree to work on potentially offensive content");
-
-        chkAdultOnly.setText("True");
-
-        chkAdultsOnlyEnabled.setText("Enabled");
-
-        lblHITApprovalRate.setText("HIT Approval Rate -");
-        lblHITApprovalRate.setToolTipText("The percentage of assignments the Worker has submitted that were subsequently approved by the Requester, over all assignments the Worker has submitted");
-
-        chkHITApprovalEnabled.setText("Enabled");
-
-        lblMasters.setText("Masters -");
-        lblMasters.setToolTipText("Masters are Workers who have demonstrated superior performance while completing thousands of HITs across the Mechanical Turk marketplace");
-
-        chkMastersExists.setText("True");
-        chkMastersExists.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkMastersExistsActionPerformed(evt);
-            }
-        });
-
-        chkMastersEnabled.setText("Enabled");
-        chkMastersEnabled.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkMastersEnabledActionPerformed(evt);
-            }
-        });
-
-        cmbxHITsApprovedComparator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo" }));
-
-        cmbxHITApprovalRateComparator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LessThan", "LessThanOrEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "EqualTo", "NotEqualTo" }));
-
         javax.swing.GroupLayout pnlSignInCreateHITLayout = new javax.swing.GroupLayout(pnlSignInCreateHIT);
         pnlSignInCreateHIT.setLayout(pnlSignInCreateHITLayout);
         pnlSignInCreateHITLayout.setHorizontalGroup(
@@ -671,11 +602,6 @@ public class OpenMturk extends javax.swing.JFrame {
         );
 
         lblSignInCreateHIT.setText("Logged Out");
-
-        lblUnitHitApprovalRate.setText("%");
-
-        lblHitsApprovedUnits.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        lblHitsApprovedUnits.setText("# of HITs");
 
         lblRewardUnits.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblRewardUnits.setText("dollars (eg. 12.50)");
@@ -732,12 +658,18 @@ public class OpenMturk extends javax.swing.JFrame {
 
         lblEstimatedCost.setText("Estimated Cost:");
 
-        sclLocales.setViewportView(lstLocales);
+        lstHITQualificationRequirements.setEnabled(false);
+        lstHITQualificationRequirements.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lstHITQualificationRequirementsPropertyChange(evt);
+            }
+        });
+        sclHITQualificationRequirements.setViewportView(lstHITQualificationRequirements);
 
-        cmbxLocaleComparator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EqualTo", "NotEqualTo", "In", "NotIn" }));
-        cmbxLocaleComparator.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbxLocaleComparatorActionPerformed(evt);
+        btnModifyQualificationRequirements.setText("Modify Qualification Requirements");
+        btnModifyQualificationRequirements.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModifyQualificationRequirementsMouseClicked(evt);
             }
         });
 
@@ -780,63 +712,17 @@ public class OpenMturk extends javax.swing.JFrame {
                                 .addComponent(lblHITLifetimeUnit))
                             .addComponent(lblHITLifetime))
                         .addGap(98, 98, 98)
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblHITApprovalRate)
-                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                    .addComponent(lblAdultWorker)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                            .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                                    .addComponent(cmbxHITApprovalRateComparator, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(45, 45, 45)
-                                                    .addComponent(txtHITApprovalRate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                                    .addGap(15, 15, 15)
-                                                    .addComponent(cmbxHITsApprovedComparator, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtHITsApproved, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                                    .addGap(3, 3, 3)
-                                                    .addComponent(lblUnitHitApprovalRate)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(chkHITApprovalEnabled))
-                                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                                    .addGap(4, 4, 4)
-                                                    .addComponent(lblHitsApprovedUnits)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(chkHITsApprovedEnabled))))
-                                        .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                            .addComponent(chkAdultOnly)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(chkAdultsOnlyEnabled))))
-                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                    .addComponent(lblMasters)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(chkMastersExists)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(chkMastersEnabled))
-                                .addComponent(lblHITsApproved)
-                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                    .addComponent(lyrpnMicrobatchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(145, 145, 145)
-                                    .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblEstimatedCost)
-                                        .addComponent(btnCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                    .addComponent(lblLocale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblCountry))
-                                .addComponent(lblQualifications, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                    .addGap(168, 168, 168)
-                                    .addComponent(sclLocales, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cmbxLocaleComparator, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCreateHITLayout.createSequentialGroup()
+                                .addComponent(lyrpnMicrobatchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(145, 145, 145)
+                                .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEstimatedCost)
+                                    .addComponent(btnCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(sclHITQualificationRequirements, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnModifyQualificationRequirements, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                            .addComponent(lblQualifications, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlCreateHITLayout.createSequentialGroup()
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHITTitle)
@@ -845,17 +731,12 @@ public class OpenMturk extends javax.swing.JFrame {
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtExternalURL, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblExternalURL, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateHITLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateHITLayout.createSequentialGroup()
-                        .addComponent(lblSignInCreateHIT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlSignInCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateHITLayout.createSequentialGroup()
-                        .addComponent(chkLocale)
-                        .addGap(112, 112, 112))))
+                .addContainerGap(1295, Short.MAX_VALUE)
+                .addComponent(lblSignInCreateHIT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlSignInCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlCreateHITLayout.setVerticalGroup(
             pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -878,25 +759,18 @@ public class OpenMturk extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblKeywords)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sclpnKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sclpnKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
                         .addComponent(txtExternalURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(18, 18, 18)
                         .addComponent(lblQualifications)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCountry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblLocale)
-                                    .addComponent(chkLocale)
-                                    .addComponent(cmbxLocaleComparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(157, 157, 157))
-                            .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                                .addComponent(sclLocales, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(18, 18, 18)
+                        .addComponent(sclHITQualificationRequirements, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModifyQualificationRequirements)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCreateHITLayout.createSequentialGroup()
                         .addComponent(lblMaxAssignments)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -923,31 +797,8 @@ public class OpenMturk extends javax.swing.JFrame {
                             .addComponent(lblAutoApprovalUnit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblHITLifetime))
-                    .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHITsApproved)
-                            .addComponent(txtHITsApproved, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chkHITsApprovedEnabled)
-                            .addComponent(cmbxHITsApprovedComparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblHitsApprovedUnits))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAdultWorker)
-                            .addComponent(chkAdultOnly)
-                            .addComponent(chkAdultsOnlyEnabled))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHITApprovalRate)
-                            .addComponent(txtHITApprovalRate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbxHITApprovalRateComparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUnitHitApprovalRate)
-                            .addComponent(chkHITApprovalEnabled))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMasters)
-                            .addComponent(chkMastersExists)
-                            .addComponent(chkMastersEnabled))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateHITLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lyrpnMicrobatchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlCreateHITLayout.createSequentialGroup()
@@ -1022,13 +873,6 @@ public class OpenMturk extends javax.swing.JFrame {
             }
         });
 
-        btntest.setText("jButton1");
-        btntest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btntestMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
         pnlQualifications.setLayout(pnlQualificationsLayout);
         pnlQualificationsLayout.setHorizontalGroup(
@@ -1072,10 +916,6 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblSignInQualification)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                .addGap(664, 664, 664)
-                .addComponent(btntest)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlQualificationsLayout.setVerticalGroup(
             pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1083,9 +923,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addComponent(btntest)
-                .addGap(45, 45, 45)
+                .addGap(134, 134, 134)
                 .addComponent(lblCreateQualification)
                 .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlQualificationsLayout.createSequentialGroup()
@@ -1938,7 +1776,6 @@ public class OpenMturk extends javax.swing.JFrame {
             messageType = JOptionPane.INFORMATION_MESSAGE;
             pnlMain.setEnabled(true);
             setSignInIndicators(Color.GREEN);
-            systemQtypeHM = getSystemQualificationMappings();
         }
         else {
             status = "Invalid credentials";
@@ -1998,105 +1835,6 @@ public class OpenMturk extends javax.swing.JFrame {
             showSingleMessage("Exception", MISC_EXCEPTION_MSG, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnGetBalanceMouseClicked
- 
-    private void populateCountries() {
-        String[] locales = java.util.Locale.getISOCountries();
-        List<String> countries = new ArrayList<>();
-        for (int i = 0; i < locales.length; i++) {
-            java.util.Locale locale = new java.util.Locale("", locales[i]);
-            String name = locale.getDisplayCountry();
-            countries.add(name + " - " + locales[i]);
-        }
-        Collections.sort(countries);
-        String[] countryArray = new String[countries.size()];
-        countryArray = countries.toArray(countryArray);
-        lstLocales.setListData(countryArray);
-    }
-    
-    private ArrayList getLocales() {
-        List<String> selectedLocales = lstLocales.getSelectedValuesList();
-        ArrayList locales = new ArrayList();
-        for (int i = 0; i < selectedLocales.size(); i++) {
-            Locale locale = new Locale();
-            String countryCode = selectedLocales.get(i).substring(Math.max(selectedLocales.get(i).length() - 2, 0));
-            locale.setCountry(countryCode);
-            locales.add(locale);
-        }
-        return locales;
-    }
-    
-    private ArrayList evaluateQualifications() {
-        ArrayList hitReqs = new ArrayList();
-        
-        if (chkLocale.isSelected()) {
-            QualificationRequirement qreq = new QualificationRequirement();
-            qreq.setQualificationTypeId("00000000000000000071");
-            ArrayList locales = getLocales();
-            qreq.setLocaleValues(locales);
-            if (cmbxLocaleComparator.getSelectedItem() == "EqualTo") {
-                qreq.setComparator(Comparator.EqualTo);
-            }
-            else if (cmbxLocaleComparator.getSelectedItem() == "NotEqualTo") {
-                qreq.setComparator(Comparator.NotEqualTo);
-            }
-            else if (cmbxLocaleComparator.getSelectedItem() == "NotIn") {
-                qreq.setComparator(Comparator.NotIn);
-            }
-            else if (cmbxLocaleComparator.getSelectedItem() == "In") {
-                qreq.setComparator(Comparator.In);
-            }
-            hitReqs.add(qreq);
-        }
-        if (chkHITsApprovedEnabled.isSelected()) {
-            QualificationRequirement qreq = new QualificationRequirement();
-            qreq.setQualificationTypeId("00000000000000000040");
-            qreq.setComparator(cmbxHITsApprovedComparator.getSelectedItem().toString());
-            ArrayList hitsApproved = new ArrayList();
-            hitsApproved.add(Integer.parseInt(txtHITsApproved.getText()));
-            qreq.setIntegerValues(hitsApproved);
-            hitReqs.add(qreq);
-        }
-        if (chkAdultsOnlyEnabled.isSelected()) {
-            QualificationRequirement qreq = new QualificationRequirement();
-            qreq.setQualificationTypeId("00000000000000000060");
-            if (chkAdultOnly.isSelected()) {
-                qreq.setComparator(Comparator.EqualTo);
-            }
-            else {
-                qreq.setComparator(Comparator.NotEqualTo);
-            }
-            ArrayList values = new ArrayList();
-            values.add(1);
-            qreq.setIntegerValues(values);
-            hitReqs.add(qreq);
-        }
-        if (chkHITApprovalEnabled.isSelected()) {
-            QualificationRequirement qreq = new QualificationRequirement();
-            qreq.setQualificationTypeId("000000000000000000L0");
-            qreq.setComparator(cmbxHITApprovalRateComparator.getSelectedItem().toString());
-            ArrayList hitApproval = new ArrayList();
-            hitApproval.add(Integer.parseInt(txtHITApprovalRate.getText()));
-            qreq.setIntegerValues(hitApproval);
-            hitReqs.add(qreq);
-        }
-        if (chkMastersEnabled.isSelected() && chkMastersExists.isSelected()) {
-            QualificationRequirement qreq = new QualificationRequirement();
-            if (submitEndpoint == "workersandbox.") {
-                qreq.setQualificationTypeId("2ARFPLSP75KLA8M8DH1HTEQVJT3SY6");
-            }
-            else {
-                qreq.setQualificationTypeId("2F1QJWKUDD8XADTFD2Q0G6UTO95ALH");
-            }
-            if (chkMastersExists.isSelected()) {
-                qreq.setComparator(Comparator.Exists);
-            }
-            else {
-                qreq.setComparator(Comparator.DoesNotExist);
-            }
-            hitReqs.add(qreq);
-        }
-        return hitReqs;
-    }
     
     private void btnDeleteHITMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteHITMouseClicked
         try {
@@ -2668,11 +2406,19 @@ public class OpenMturk extends javax.swing.JFrame {
             errorList.add(error);
         }
         if (errorList.isEmpty()) {
-            lblEstimatedCost.setText("Estimated Cost:" + " $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, chkMastersEnabled.isSelected() && chkMastersExists.isSelected(), chkMicroBatch.isSelected()));
+            lblEstimatedCost.setText("Estimated Cost:" + " $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, checkMasters(), chkMicroBatch.isSelected()));
         }
         else {
             lblEstimatedCost.setText("Estimated Cost:" + " Undefined, check inputs");
         }
+    }
+    
+    private boolean checkMasters() {
+        boolean masters = false;
+        if (gQreqHM.containsKey("Masters")) {
+            masters = true;
+        }
+        return masters;
     }
     
     private void btnCreateHITMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateHITMouseClicked
@@ -2834,54 +2580,7 @@ public class OpenMturk extends javax.swing.JFrame {
             };
             errorList.add(error);
         }
-
-        if (chkHITsApprovedEnabled.isSelected()) {
-            try {
-                int value = Integer.parseInt(txtHITsApproved.getText().trim());
-                if (value < 0) {
-                    String[] error = {
-                        "HITs Approved",
-                        "HITs Approved cannot be negative!"
-                    };
-                    errorList.add(error);
-                }
-            }
-            catch (NumberFormatException e) {
-                String[] error = {
-                    "HITs Approved",
-                    "'" + txtHITsApproved.getText().trim() + "' is not a valid number!"
-                };
-                errorList.add(error);
-            }
-        }
-
-        if (chkHITApprovalEnabled.isSelected()) {
-            try {
-                int value = Integer.parseInt(txtHITApprovalRate.getText().trim());
-                if (value < 0 || value > 100) {
-                    String[] error = {
-                        "HIT Approval Rate",
-                        "HIT Approval rate must be between 0 and 100!"
-                    };
-                    errorList.add(error);
-                }
-            } catch (NumberFormatException e) {
-                String[] error = {
-                    "HIT Approval Rate",
-                    "'" + txtHITApprovalRate.getText().trim() + "' is not a valid number!"
-                };
-                errorList.add(error);
-            }
-        }
         
-        if (chkLocale.isSelected() && lstLocales.getSelectedValuesList().size() > 30) {
-            String[] error = {
-                "Locale",
-                "Number of locales cannot be greater than 30!"
-            };
-            errorList.add(error);
-        }
-
         //don't move on to qualifications if there are errors
         if (errorList.size() > 0) {
             showMessage(errorList, JOptionPane.WARNING_MESSAGE);
@@ -2892,11 +2591,11 @@ public class OpenMturk extends javax.swing.JFrame {
 
         int totalBatches = (maxAssignments + 9 - 1) / 9;
 
-        ArrayList hitReqs = evaluateQualifications();
+        ArrayList hitReqs = (ArrayList)gQreqHM.values();
 
         //***if hyperbatch***
         if (totalBatches > 1 && chkMicroBatch.isSelected()) {
-            int confirm = JOptionPane.showConfirmDialog(pnlCreateHIT, "Creating this Study will cost $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, chkMastersEnabled.isSelected() && chkMastersExists.isSelected(), chkMicroBatch.isSelected()) + ". Continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            int confirm = JOptionPane.showConfirmDialog(pnlCreateHIT, "Creating this Study will cost $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, checkMasters(), chkMicroBatch.isSelected()) + ". Continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
             if (confirm == 0) {
                 ArrayList qReqs = new ArrayList(); //store "not" QualificationRequirements in list
 
@@ -2982,7 +2681,7 @@ public class OpenMturk extends javax.swing.JFrame {
         } //***not hyperbatch***
         else {
             try {
-                int confirm = JOptionPane.showConfirmDialog(pnlCreateHIT, "Creating this HIT will cost $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, chkMastersEnabled.isSelected() && chkMastersExists.isSelected(), chkMicroBatch.isSelected()) + ". Continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(pnlCreateHIT, "Creating this HIT will cost $" + Util.calculatePrice(Double.parseDouble(rewardString), maxAssignments, checkMasters(), chkMicroBatch.isSelected()) + ". Continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
                     request.setQualificationRequirements(hitReqs);
                     CreateHITResult result = client.createHIT(request);
@@ -3012,27 +2711,9 @@ public class OpenMturk extends javax.swing.JFrame {
         updateEstimatedCost();
     }//GEN-LAST:event_txtRewardFocusLost
 
-    private void chkMastersExistsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMastersExistsActionPerformed
-        updateEstimatedCost();
-    }//GEN-LAST:event_chkMastersExistsActionPerformed
-
-    private void chkMastersEnabledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMastersEnabledActionPerformed
-        updateEstimatedCost();
-    }//GEN-LAST:event_chkMastersEnabledActionPerformed
-
     private void chkMicroBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMicroBatchActionPerformed
         updateEstimatedCost();
     }//GEN-LAST:event_chkMicroBatchActionPerformed
-
-    private void cmbxLocaleComparatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxLocaleComparatorActionPerformed
-        lstLocales.clearSelection();
-        if (cmbxLocaleComparator.getSelectedItem() == "EqualTo" || cmbxLocaleComparator.getSelectedItem() == "NotEqualTo") {
-            lstLocales.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        }
-        else if (cmbxLocaleComparator.getSelectedItem() == "NotIn" || cmbxLocaleComparator.getSelectedItem() == "In") {
-            lstLocales.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        }
-    }//GEN-LAST:event_cmbxLocaleComparatorActionPerformed
 
     private void btnDownloadCSVBonusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDownloadCSVBonusMouseClicked
         if (Util.getListData(lstWorkerIDsBonus).length == 0) {
@@ -3190,10 +2871,26 @@ public class OpenMturk extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnUpdateQualificationMouseClicked
 
-    private void btntestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntestMouseClicked
-        QualificationForm fm = new QualificationForm(this, true, client, systemQtypeHM);
+    private void btnModifyQualificationRequirementsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifyQualificationRequirementsMouseClicked
+        HashMap<String, String> systemQtypeHM = getSystemQualificationMappings();
+        QualificationForm fm = new QualificationForm(this, true, client, systemQtypeHM, gQreqHM);
         fm.setVisible(rootPaneCheckingEnabled);
-    }//GEN-LAST:event_btntestMouseClicked
+        gQreqHM = fm.getQualificationRequirements();
+        Set<String> keys = gQreqHM.keySet();
+        String qReqNames[] = keys.toArray(new String[keys.size()]);
+        lstHITQualificationRequirements.setListData(qReqNames);
+        fm.dispose();
+        if (!gQreqHM.isEmpty()) {
+            chkMicroBatch.setEnabled(false);
+        }
+        else {
+            chkMicroBatch.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnModifyQualificationRequirementsMouseClicked
+
+    private void lstHITQualificationRequirementsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lstHITQualificationRequirementsPropertyChange
+        updateEstimatedCost();
+    }//GEN-LAST:event_lstHITQualificationRequirementsPropertyChange
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -3379,7 +3076,6 @@ public class OpenMturk extends javax.swing.JFrame {
     }
 
     private void showSingleMessage(String title, String message, int messageType) {
-
         List<String[]> errorList = new ArrayList<String[]>();
         String[] error = { title, message };
         errorList.add(error);
@@ -3507,6 +3203,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnListHITsContact;
     private javax.swing.JButton btnListQualification;
     private javax.swing.JButton btnLoadCredentials;
+    private javax.swing.JButton btnModifyQualificationRequirements;
     private javax.swing.JButton btnOpenWebsite;
     private javax.swing.JButton btnRejectSelected;
     private javax.swing.JButton btnSaveCredentials;
@@ -3518,25 +3215,13 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateQualification;
     private javax.swing.JButton btnUploadCSVBonus;
     private javax.swing.JButton btnValidate;
-    private javax.swing.JButton btntest;
-    private javax.swing.JCheckBox chkAdultOnly;
-    private javax.swing.JCheckBox chkAdultsOnlyEnabled;
     private javax.swing.JCheckBox chkAutoGranted;
-    private javax.swing.JCheckBox chkHITApprovalEnabled;
-    private javax.swing.JCheckBox chkHITsApprovedEnabled;
-    private javax.swing.JCheckBox chkLocale;
-    private javax.swing.JCheckBox chkMastersEnabled;
-    private javax.swing.JCheckBox chkMastersExists;
     private javax.swing.JCheckBox chkMicroBatch;
     private javax.swing.JComboBox<String> cmbxAction;
-    private javax.swing.JComboBox<String> cmbxHITApprovalRateComparator;
-    private javax.swing.JComboBox<String> cmbxHITsApprovedComparator;
-    private javax.swing.JComboBox<String> cmbxLocaleComparator;
     private javax.swing.JLabel lblAWSCreds;
     private javax.swing.JLabel lblAcceptTime;
     private javax.swing.JLabel lblAccessKey;
     private javax.swing.JLabel lblAddAssignments;
-    private javax.swing.JLabel lblAdultWorker;
     private javax.swing.JLabel lblApprovalTime;
     private javax.swing.JLabel lblAssignDuration;
     private javax.swing.JLabel lblAssignmentDetails;
@@ -3556,7 +3241,6 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblBlockedWorkers;
     private javax.swing.JLabel lblBonusAmount;
     private javax.swing.JLabel lblBonusHITs;
-    private javax.swing.JLabel lblCountry;
     private javax.swing.JLabel lblCreateQualification;
     private javax.swing.JLabel lblCreationTimeDetail;
     private javax.swing.JLabel lblDeadline;
@@ -3564,7 +3248,6 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblEndpoint;
     private javax.swing.JLabel lblEstimatedCost;
     private javax.swing.JLabel lblExternalURL;
-    private javax.swing.JLabel lblHITApprovalRate;
     private javax.swing.JLabel lblHITDescriptionDetail;
     private javax.swing.JLabel lblHITExpirationTimeDetail;
     private javax.swing.JLabel lblHITGroupIDDetail;
@@ -3577,14 +3260,10 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblHITTitle;
     private javax.swing.JLabel lblHITTitleDetail;
     private javax.swing.JLabel lblHITTypeIDDetail;
-    private javax.swing.JLabel lblHITsApproved;
     private javax.swing.JLabel lblHITsContact;
     private javax.swing.JLabel lblHITsUpdate;
-    private javax.swing.JLabel lblHitsApprovedUnits;
     private javax.swing.JLabel lblKeywords;
     private javax.swing.JLabel lblKeywordsDetail;
-    private javax.swing.JLabel lblLocale;
-    private javax.swing.JLabel lblMasters;
     private javax.swing.JLabel lblMaxAssignments;
     private javax.swing.JLabel lblMaxAssignmentsDetail;
     private javax.swing.JLabel lblMessage;
@@ -3613,7 +3292,6 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignInWorkerBonus;
     private javax.swing.JLabel lblSubject;
     private javax.swing.JLabel lblSubmitTime;
-    private javax.swing.JLabel lblUnitHitApprovalRate;
     private javax.swing.JLabel lblWorkerID;
     private javax.swing.JLabel lblWorkerIDs;
     private javax.swing.JList<String> lstAssignmentHITs;
@@ -3621,9 +3299,9 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JList<String> lstAssignments;
     private javax.swing.JList<String> lstBlockedWorkers;
     private javax.swing.JList<String> lstBonusHITs;
+    private javax.swing.JList<String> lstHITQualificationRequirements;
     private javax.swing.JList<String> lstHITsContact;
     private javax.swing.JList<String> lstListHITs;
-    private javax.swing.JList<String> lstLocales;
     private javax.swing.JList<String> lstQualificationTypes;
     private javax.swing.JList<String> lstWorkerIDsBonus;
     private javax.swing.JLayeredPane lyrpnMicrobatchSelect;
@@ -3651,9 +3329,9 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JScrollPane sclBlockList;
     private javax.swing.JScrollPane sclBlockWorkers;
     private javax.swing.JScrollPane sclBonusHITs;
+    private javax.swing.JScrollPane sclHITQualificationRequirements;
     private javax.swing.JScrollPane sclHITsContact;
     private javax.swing.JScrollPane sclListHITs;
-    private javax.swing.JScrollPane sclLocales;
     private javax.swing.JScrollPane sclMessage;
     private javax.swing.JScrollPane sclQualificationDescription;
     private javax.swing.JScrollPane sclQualificationTypes;
@@ -3680,10 +3358,8 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JTextField txtContactSubject;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtExternalURL;
-    private javax.swing.JTextField txtHITApprovalRate;
     private javax.swing.JTextField txtHITLifetime;
     private javax.swing.JTextField txtHITTitle;
-    private javax.swing.JTextField txtHITsApproved;
     private javax.swing.JTextArea txtKeywords;
     private javax.swing.JTextField txtMaxAssignments;
     private javax.swing.JTextField txtMaxAssignmentsDetail;
