@@ -445,8 +445,10 @@ public final class QualificationForm extends javax.swing.JDialog {
                 sysQualType = cmbxQualificationTypes.getSelectedItem().toString();
                 qtypeId = customQtypeHM.get(cmbxQualificationTypes.getSelectedItem().toString());
                 comparator = cmbxComparator.getSelectedItem().toString();
-                values.add(Util.validatePositiveIntegerWithComparator(txtValue));
-                qreq.setIntegerValues(values);
+                if (!(comparator == "Exists" || comparator == "DoesNotExist")) {
+                    values.add(Util.validatePositiveIntegerWithComparator(txtValue));
+                    qreq.setIntegerValues(values);
+                }
             }
             qreq.setQualificationTypeId(qtypeId);
             qreq.setComparator(comparator);

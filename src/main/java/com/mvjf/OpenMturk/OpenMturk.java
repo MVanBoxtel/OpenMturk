@@ -2809,11 +2809,11 @@ public class OpenMturk extends javax.swing.JFrame {
             request.setAutoGranted(chkAutoGranted.isSelected());
             request.setQualificationTypeStatus(QualificationTypeStatus.Active);
             client.createQualificationType(request);
-            btnListQualificationMouseClicked(evt);
             showSingleMessage("Qualifications", "Qualification created successfully!", JOptionPane.INFORMATION_MESSAGE);
             txtQualificationName.setText("");
             txtQualficationDescription.setText("");
             txtQualificationKeywords.setText("");
+            btnListQualificationMouseClicked(evt);
         }
         catch (Exception e) {
             showSingleMessage("Qualification Status", "Unable to create qualification type, check your inputs", JOptionPane.ERROR_MESSAGE);
