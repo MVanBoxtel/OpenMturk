@@ -154,7 +154,7 @@ public class OpenMturk extends javax.swing.JFrame {
         systemQtypeHM.put("HITs Approved", "00000000000000000040");
         systemQtypeHM.put("Locale", "00000000000000000071");
         systemQtypeHM.put("Adult Workers", "00000000000000000060");
-        systemQtypeHM.put("Approval Rate", "000000000000000000L0");
+        systemQtypeHM.put("HIT Approval Rate", "000000000000000000L0");
         return systemQtypeHM;
     }
 
@@ -223,24 +223,6 @@ public class OpenMturk extends javax.swing.JFrame {
         sclHITQualificationRequirements = new javax.swing.JScrollPane();
         lstHITQualificationRequirements = new javax.swing.JList<>();
         btnModifyQualificationRequirements = new javax.swing.JButton();
-        pnlQualifications = new javax.swing.JPanel();
-        lblSignInQualification = new javax.swing.JLabel();
-        pnlSignInQualification = new javax.swing.JPanel();
-        sclQualificationTypes = new javax.swing.JScrollPane();
-        lstQualificationTypes = new javax.swing.JList<>();
-        lblCreateQualification = new javax.swing.JLabel();
-        chkAutoGranted = new javax.swing.JCheckBox();
-        txtQualificationName = new javax.swing.JTextField();
-        lblName = new javax.swing.JLabel();
-        sclQualificationDescription = new javax.swing.JScrollPane();
-        txtQualficationDescription = new javax.swing.JTextArea();
-        lblQualificationDesc = new javax.swing.JLabel();
-        txtQualificationKeywords = new javax.swing.JTextField();
-        lblQualificationKeywords = new javax.swing.JLabel();
-        btnDeleteQualification = new javax.swing.JButton();
-        btnCreateQualification = new javax.swing.JButton();
-        btnListQualification = new javax.swing.JButton();
-        btnUpdateQualification = new javax.swing.JButton();
         pnlHITDetail = new javax.swing.JPanel();
         btnDeleteHIT = new javax.swing.JButton();
         btnListHITs = new javax.swing.JButton();
@@ -274,6 +256,24 @@ public class OpenMturk extends javax.swing.JFrame {
         pnlSignInHITDetail = new javax.swing.JPanel();
         lblSignInHITDetail = new javax.swing.JLabel();
         lblHITsUpdate = new javax.swing.JLabel();
+        pnlQualifications = new javax.swing.JPanel();
+        lblSignInQualification = new javax.swing.JLabel();
+        pnlSignInQualification = new javax.swing.JPanel();
+        sclQualificationTypes = new javax.swing.JScrollPane();
+        lstQualificationTypes = new javax.swing.JList<>();
+        lblCreateQualification = new javax.swing.JLabel();
+        chkAutoGranted = new javax.swing.JCheckBox();
+        txtQualificationName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        sclQualificationDescription = new javax.swing.JScrollPane();
+        txtQualficationDescription = new javax.swing.JTextArea();
+        lblQualificationDesc = new javax.swing.JLabel();
+        txtQualificationKeywords = new javax.swing.JTextField();
+        lblQualificationKeywords = new javax.swing.JLabel();
+        btnDeleteQualification = new javax.swing.JButton();
+        btnCreateQualification = new javax.swing.JButton();
+        btnListQualification = new javax.swing.JButton();
+        btnUpdateQualification = new javax.swing.JButton();
         pnlAppRejAssignments = new javax.swing.JPanel();
         sclAssignments = new javax.swing.JScrollPane();
         lstAssignments = new javax.swing.JList<>();
@@ -814,149 +814,6 @@ public class OpenMturk extends javax.swing.JFrame {
 
         pnlMain.addTab("Create HIT", pnlCreateHIT);
 
-        lblSignInQualification.setText("Logged Out");
-
-        javax.swing.GroupLayout pnlSignInQualificationLayout = new javax.swing.GroupLayout(pnlSignInQualification);
-        pnlSignInQualification.setLayout(pnlSignInQualificationLayout);
-        pnlSignInQualificationLayout.setHorizontalGroup(
-            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
-        );
-        pnlSignInQualificationLayout.setVerticalGroup(
-            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
-        );
-
-        lstQualificationTypes.setName("lstQualificationTypes"); // NOI18N
-        sclQualificationTypes.setViewportView(lstQualificationTypes);
-
-        lblCreateQualification.setText("Create Qualification Type:");
-
-        chkAutoGranted.setSelected(true);
-        chkAutoGranted.setText("Auto Granted");
-
-        lblName.setText("<html>Name:<br>\n(non updatable)</html>");
-
-        txtQualficationDescription.setColumns(20);
-        txtQualficationDescription.setRows(5);
-        sclQualificationDescription.setViewportView(txtQualficationDescription);
-
-        lblQualificationDesc.setText("Description:");
-
-        lblQualificationKeywords.setText("<html>Keywords:<br>\n(comma separated, <br>\nnon updatable)</html>");
-
-        btnDeleteQualification.setText("Delete Selected Qualification");
-        btnDeleteQualification.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDeleteQualificationMouseClicked(evt);
-            }
-        });
-
-        btnCreateQualification.setText("Create Qualification");
-        btnCreateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCreateQualificationMouseClicked(evt);
-            }
-        });
-
-        btnListQualification.setText("List Qualifications");
-        btnListQualification.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnListQualificationMouseClicked(evt);
-            }
-        });
-
-        btnUpdateQualification.setText("Update Selected Qualification");
-        btnUpdateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnUpdateQualificationMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
-        pnlQualifications.setLayout(pnlQualificationsLayout);
-        pnlQualificationsLayout.setHorizontalGroup(
-            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
-                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeleteQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblCreateQualification))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
-                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblQualificationDesc)
-                                    .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                                        .addComponent(btnCreateQualification)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnUpdateQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
-                                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(chkAutoGranted)
-                                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
-                                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnListQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(207, 207, 207))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblSignInQualification)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pnlQualificationsLayout.setVerticalGroup(
-            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(134, 134, 134)
-                .addComponent(lblCreateQualification)
-                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblQualificationDesc)
-                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(chkAutoGranted))
-                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnListQualification)
-                .addGap(15, 15, 15)
-                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateQualification)
-                    .addComponent(btnUpdateQualification))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDeleteQualification)
-                .addContainerGap(190, Short.MAX_VALUE))
-        );
-
-        pnlMain.addTab("Qualification Management", pnlQualifications);
-
         btnDeleteHIT.setText("Delete HIT");
         btnDeleteHIT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1163,6 +1020,152 @@ public class OpenMturk extends javax.swing.JFrame {
         );
 
         pnlMain.addTab("Update HIT", pnlHITDetail);
+
+        lblSignInQualification.setText("Logged Out");
+
+        javax.swing.GroupLayout pnlSignInQualificationLayout = new javax.swing.GroupLayout(pnlSignInQualification);
+        pnlSignInQualification.setLayout(pnlSignInQualificationLayout);
+        pnlSignInQualificationLayout.setHorizontalGroup(
+            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 34, Short.MAX_VALUE)
+        );
+        pnlSignInQualificationLayout.setVerticalGroup(
+            pnlSignInQualificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
+        sclQualificationTypes.setMaximumSize(new java.awt.Dimension(259, 260));
+        sclQualificationTypes.setMinimumSize(new java.awt.Dimension(259, 260));
+
+        lstQualificationTypes.setName("lstQualificationTypes"); // NOI18N
+        sclQualificationTypes.setViewportView(lstQualificationTypes);
+
+        lblCreateQualification.setText("Create Qualification Type:");
+
+        chkAutoGranted.setSelected(true);
+        chkAutoGranted.setText("Auto Granted");
+
+        lblName.setText("<html>Name:<br>\n(non updatable)</html>");
+
+        txtQualficationDescription.setColumns(20);
+        txtQualficationDescription.setRows(5);
+        sclQualificationDescription.setViewportView(txtQualficationDescription);
+
+        lblQualificationDesc.setText("Description:");
+
+        lblQualificationKeywords.setText("<html>Keywords:<br>\n(comma separated, <br>\nnon updatable)</html>");
+
+        btnDeleteQualification.setText("Delete Selected Qualification");
+        btnDeleteQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteQualificationMouseClicked(evt);
+            }
+        });
+
+        btnCreateQualification.setText("Create Qualification");
+        btnCreateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCreateQualificationMouseClicked(evt);
+            }
+        });
+
+        btnListQualification.setText("List Qualifications");
+        btnListQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnListQualificationMouseClicked(evt);
+            }
+        });
+
+        btnUpdateQualification.setText("Update Selected Qualification");
+        btnUpdateQualification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUpdateQualificationMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
+        pnlQualifications.setLayout(pnlQualificationsLayout);
+        pnlQualificationsLayout.setHorizontalGroup(
+            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblCreateQualification))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlQualificationsLayout.createSequentialGroup()
+                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblQualificationDesc)
+                                    .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                                        .addComponent(btnCreateQualification)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 471, Short.MAX_VALUE)
+                                        .addComponent(btnUpdateQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(chkAutoGranted)
+                                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnListQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(207, 207, 207))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblSignInQualification)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlQualificationsLayout.setVerticalGroup(
+            pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(lblCreateQualification)
+                        .addGap(32, 32, 32)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQualificationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQualificationDesc)
+                            .addComponent(sclQualificationDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblQualificationKeywords, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(chkAutoGranted))
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnListQualification)
+                .addGap(15, 15, 15)
+                .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreateQualification)
+                    .addComponent(btnUpdateQualification))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteQualification)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+
+        pnlMain.addTab("Qualification Management", pnlQualifications);
 
         lstAssignments.setName("lstAssignments"); // NOI18N
         sclAssignments.setViewportView(lstAssignments);
@@ -2591,7 +2594,7 @@ public class OpenMturk extends javax.swing.JFrame {
 
         int totalBatches = (maxAssignments + 9 - 1) / 9;
 
-        ArrayList hitReqs = (ArrayList)gQreqHM.values();
+        ArrayList hitReqs = new ArrayList<>(gQreqHM.values());
 
         //***if hyperbatch***
         if (totalBatches > 1 && chkMicroBatch.isSelected()) {
@@ -2881,6 +2884,7 @@ public class OpenMturk extends javax.swing.JFrame {
         lstHITQualificationRequirements.setListData(qReqNames);
         fm.dispose();
         if (!gQreqHM.isEmpty()) {
+            chkMicroBatch.setSelected(false);
             chkMicroBatch.setEnabled(false);
         }
         else {
