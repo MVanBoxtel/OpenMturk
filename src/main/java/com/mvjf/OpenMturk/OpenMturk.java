@@ -274,6 +274,7 @@ public class OpenMturk extends javax.swing.JFrame {
         btnCreateQualification = new javax.swing.JButton();
         btnListQualification = new javax.swing.JButton();
         btnUpdateQualification = new javax.swing.JButton();
+        btnAssigntoWorkers = new javax.swing.JButton();
         pnlAppRejAssignments = new javax.swing.JPanel();
         sclAssignments = new javax.swing.JScrollPane();
         lstAssignments = new javax.swing.JList<>();
@@ -1083,6 +1084,13 @@ public class OpenMturk extends javax.swing.JFrame {
             }
         });
 
+        btnAssigntoWorkers.setText("Assign Qualifications to Workers");
+        btnAssigntoWorkers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAssigntoWorkersMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
         pnlQualifications.setLayout(pnlQualificationsLayout);
         pnlQualificationsLayout.setHorizontalGroup(
@@ -1126,6 +1134,10 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblSignInQualification)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignInQualification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                .addGap(635, 635, 635)
+                .addComponent(btnAssigntoWorkers)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlQualificationsLayout.setVerticalGroup(
             pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1162,7 +1174,9 @@ public class OpenMturk extends javax.swing.JFrame {
                     .addComponent(btnUpdateQualification))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteQualification)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(btnAssigntoWorkers)
+                .addGap(92, 92, 92))
         );
 
         pnlMain.addTab("Qualification Management", pnlQualifications);
@@ -2768,7 +2782,6 @@ public class OpenMturk extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             showSingleMessage("Upload CSV", "Error uploading CSV, ensure your CSV file has a heading and uses proper formatting", JOptionPane.ERROR_MESSAGE);
-            System.out.println(e);
         }
         
     }//GEN-LAST:event_btnUploadCSVBonusMouseClicked
@@ -2895,6 +2908,12 @@ public class OpenMturk extends javax.swing.JFrame {
     private void lstHITQualificationRequirementsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lstHITQualificationRequirementsPropertyChange
         updateEstimatedCost();
     }//GEN-LAST:event_lstHITQualificationRequirementsPropertyChange
+
+    private void btnAssigntoWorkersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssigntoWorkersMouseClicked
+        QualificationAssignmentForm fm = new QualificationAssignmentForm(this, true, client);
+        fm.setVisible(rootPaneCheckingEnabled);
+        fm.dispose();
+    }//GEN-LAST:event_btnAssigntoWorkersMouseClicked
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -3190,6 +3209,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CbxEndpoint;
     private javax.swing.JButton btnApproveAll;
     private javax.swing.JButton btnApproveSelected;
+    private javax.swing.JButton btnAssigntoWorkers;
     private javax.swing.JButton btnBlockWorker;
     private javax.swing.JButton btnContactMessage;
     private javax.swing.JButton btnCreateHIT;

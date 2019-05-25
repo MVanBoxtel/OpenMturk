@@ -74,6 +74,8 @@ public class Util {
         Reader reader = Files.newBufferedReader(Paths.get(csvPath));
         CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
         List<String[]> data = csvReader.readAll();
+        reader.close();
+        csvReader.close();
         return data;
     }
     
