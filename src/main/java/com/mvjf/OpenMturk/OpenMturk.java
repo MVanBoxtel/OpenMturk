@@ -346,18 +346,24 @@ public class OpenMturk extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OpenMturk");
+        setBounds(new java.awt.Rectangle(0, 0, 2873, 810));
+        setMaximumSize(new java.awt.Dimension(1600, 850));
+        setPreferredSize(new java.awt.Dimension(1600, 850));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout());
 
-        pnlInformation.setMaximumSize(new java.awt.Dimension(2147483647, 32767));
+        pnlInformation.setMaximumSize(new java.awt.Dimension(1429, 30));
         pnlInformation.setPreferredSize(new java.awt.Dimension(1429, 30));
 
         lblSignInAccount.setText("Logged Out");
+
+        pnlSignInAccount.setMaximumSize(new java.awt.Dimension(30, 30));
 
         javax.swing.GroupLayout pnlSignInAccountLayout = new javax.swing.GroupLayout(pnlSignInAccount);
         pnlSignInAccount.setLayout(pnlSignInAccountLayout);
         pnlSignInAccountLayout.setHorizontalGroup(
             pnlSignInAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 39, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
         pnlSignInAccountLayout.setVerticalGroup(
             pnlSignInAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,7 +379,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addComponent(lblSignInAccount)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignInAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
         pnlInformationLayout.setVerticalGroup(
             pnlInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,6 +390,7 @@ public class OpenMturk extends javax.swing.JFrame {
         getContentPane().add(pnlInformation);
 
         pnlMain.setEnabled(false);
+        pnlMain.setMaximumSize(new java.awt.Dimension(1429, 800));
         pnlMain.setPreferredSize(new java.awt.Dimension(1429, 800));
 
         lblAWSCreds.setText("AWS Credentials");
@@ -667,7 +674,7 @@ public class OpenMturk extends javax.swing.JFrame {
         pnlCreateHITLayout.setHorizontalGroup(
             pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(110, 110, 110)
                 .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCreateHITLayout.createSequentialGroup()
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -710,7 +717,7 @@ public class OpenMturk extends javax.swing.JFrame {
                                     .addComponent(btnCreateHIT, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(sclHITQualificationRequirements, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnModifyQualificationRequirements, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                                .addComponent(btnModifyQualificationRequirements, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblQualifications, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlCreateHITLayout.createSequentialGroup()
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -720,12 +727,12 @@ public class OpenMturk extends javax.swing.JFrame {
                         .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtExternalURL, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblExternalURL, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         pnlCreateHITLayout.setVerticalGroup(
             pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCreateHITLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(55, 55, 55)
                 .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHITTitle)
                     .addComponent(lblExternalURL))
@@ -790,7 +797,7 @@ public class OpenMturk extends javax.swing.JFrame {
                 .addGroup(pnlCreateHITLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHITLifetime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblHITLifetimeUnit))
-                .addGap(148, 148, 148))
+                .addGap(214, 214, 214))
         );
 
         pnlMain.addTab("Create HIT", pnlCreateHIT);
