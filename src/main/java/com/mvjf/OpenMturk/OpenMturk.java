@@ -51,14 +51,12 @@ import com.amazonaws.services.mturk.model.UpdateExpirationForHITRequest;
 import com.amazonaws.services.mturk.model.UpdateExpirationForHITResult;
 import com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest;
 import java.awt.Color;
-import java.awt.Desktop;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -270,6 +268,7 @@ public class OpenMturk extends javax.swing.JFrame {
         btnListQualification = new javax.swing.JButton();
         btnUpdateQualification = new javax.swing.JButton();
         btnAssigntoWorkers = new javax.swing.JButton();
+        btnQtypeDocumentation = new javax.swing.JButton();
         pnlAppRejAssignments = new javax.swing.JPanel();
         sclAssignments = new javax.swing.JScrollPane();
         lstAssignments = new javax.swing.JList<>();
@@ -600,7 +599,7 @@ public class OpenMturk extends javax.swing.JFrame {
         lblQualifications.setToolTipText("Conditions that a Worker's Qualifications must meet in order to accept the HIT");
 
         lblRewardUnits.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        lblRewardUnits.setText("dollars (eg. 12.50)");
+        lblRewardUnits.setText("dollars (eg. 12.50, 0.5)");
 
         lblAssignmentDurationUnit.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblAssignmentDurationUnit.setText("minutes");
@@ -1044,15 +1043,19 @@ public class OpenMturk extends javax.swing.JFrame {
             }
         });
 
+        btnQtypeDocumentation.setText("Open Documentation");
+        btnQtypeDocumentation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnQtypeDocumentationMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlQualificationsLayout = new javax.swing.GroupLayout(pnlQualifications);
         pnlQualifications.setLayout(pnlQualificationsLayout);
         pnlQualificationsLayout.setHorizontalGroup(
             pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
                 .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeleteQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlQualificationsLayout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1080,7 +1083,12 @@ public class OpenMturk extends javax.swing.JFrame {
                                         .addComponent(sclQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQualificationsLayout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnListQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(btnListQualification, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(pnlQualificationsLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDeleteQualification, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(btnQtypeDocumentation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(207, 207, 207))
             .addGroup(pnlQualificationsLayout.createSequentialGroup()
                 .addGap(635, 635, 635)
@@ -1119,7 +1127,9 @@ public class OpenMturk extends javax.swing.JFrame {
                     .addComponent(btnUpdateQualification))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteQualification)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnQtypeDocumentation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(btnAssigntoWorkers)
                 .addGap(92, 92, 92))
         );
@@ -1631,6 +1641,7 @@ public class OpenMturk extends javax.swing.JFrame {
         pnlMain.getAccessibleContext().setAccessibleName("");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValidateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidateMouseClicked
@@ -2183,18 +2194,10 @@ public class OpenMturk extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExpireHITMouseClicked
 
     private void btnOpenWebsiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenWebsiteMouseClicked
-        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-            String endpoint = CbxEndpoint.getModel().getSelectedItem().toString().split("[\\(\\)]")[1];
-            try {
-                URL url = new URL("https://" + endpoint);
-                desktop.browse(url.toURI());
-            } catch (Exception e) {
-                showSingleMessage("Exception", "Error opening web page", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        else {
-            showSingleMessage("Browse on desktop", "Not supported", JOptionPane.WARNING_MESSAGE);
+        String endpoint = CbxEndpoint.getModel().getSelectedItem().toString().split("[\\(\\)]")[1];
+        String result = Util.openWebsite(endpoint);
+        if (!result.isEmpty()) {
+            showSingleMessage("Error", result, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnOpenWebsiteMouseClicked
 
@@ -2775,6 +2778,13 @@ public class OpenMturk extends javax.swing.JFrame {
         fm.setVisible(rootPaneCheckingEnabled);
         fm.dispose();
     }//GEN-LAST:event_btnAssigntoWorkersMouseClicked
+
+    private void btnQtypeDocumentationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQtypeDocumentationMouseClicked
+        String result = Util.openWebsite("docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateQualificationTypeOperation.html");
+        if (!result.isEmpty()) {
+            showSingleMessage("Error", result, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnQtypeDocumentationMouseClicked
     
     private boolean validHITTitle(String title) {
         List<String> hits = new ArrayList<String>(listHITs().keySet());
@@ -3065,6 +3075,7 @@ public class OpenMturk extends javax.swing.JFrame {
     private javax.swing.JButton btnLoadCredentials;
     private javax.swing.JButton btnModifyQualificationRequirements;
     private javax.swing.JButton btnOpenWebsite;
+    private javax.swing.JButton btnQtypeDocumentation;
     private javax.swing.JButton btnRejectSelected;
     private javax.swing.JButton btnSaveCredentials;
     private javax.swing.JButton btnSelectAllWorkersBonus;

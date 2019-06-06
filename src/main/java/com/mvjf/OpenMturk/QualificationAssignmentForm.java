@@ -8,13 +8,9 @@ package com.mvjf.OpenMturk;
 import com.amazonaws.services.mturk.AmazonMTurk;
 import com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerRequest;
 import static com.mvjf.OpenMturk.QualificationForm.getCustomQualificationTypes;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +19,7 @@ import javax.swing.JOptionPane;
 public class QualificationAssignmentForm extends javax.swing.JDialog {
     private final HashMap<String,String> customQtypeHM;
     private HashMap<String, String> workerValuesHM;
-    private AmazonMTurk client;
+    private final AmazonMTurk client;
     
     
     public QualificationAssignmentForm(java.awt.Frame parent, boolean modal, AmazonMTurk client) {
@@ -65,6 +61,7 @@ public class QualificationAssignmentForm extends javax.swing.JDialog {
         lblQAStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
 
         chkQASendNotification.setText("Send Notification");
 
@@ -110,6 +107,10 @@ public class QualificationAssignmentForm extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnQAExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnQAAssignQualifications))
                     .addComponent(lblQAStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,17 +125,13 @@ public class QualificationAssignmentForm extends javax.swing.JDialog {
                                     .addComponent(lblQAValues))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnQAExit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnQAAssignQualifications))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(chkQASendNotification)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblQAQualificationType)
-                                        .addGap(22, 22, 22))))
+                                        .addGap(22, 22, 22)))
+                                .addGap(16, 16, 16))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbxQAQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -158,16 +155,17 @@ public class QualificationAssignmentForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkQASendNotification)
                     .addComponent(btnQAUploadCSV))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnQAAssignQualifications)
                     .addComponent(btnQAExit))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(lblQAStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnQAUploadCSVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQAUploadCSVMouseClicked
@@ -210,7 +208,13 @@ public class QualificationAssignmentForm extends javax.swing.JDialog {
                 request.setSendNotification(chkQASendNotification.isSelected());
                 client.associateQualificationWithWorker(request);
             }
-            lblQAStatus.setText("Worker Qualifications assigned successfully!");
+            String message = "Worker Qualifications assigned successfully";
+            if (chkQASendNotification.isSelected()) {
+                lblQAStatus.setText(message + ", workers notified!");
+            }
+            else {
+                lblQAStatus.setText(message + "!");
+            }
         } catch (Exception e) {
             lblQAStatus.setText("Error submitting request, check your inputs are valid values");
         }

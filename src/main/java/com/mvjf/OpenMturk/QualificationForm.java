@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 
 public final class QualificationForm extends javax.swing.JDialog {
@@ -126,11 +127,14 @@ public final class QualificationForm extends javax.swing.JDialog {
         cmbxLocaleComparator = new javax.swing.JComboBox<>();
         pnlOtherSystemQualifications = new javax.swing.JPanel();
         cmbxSystemComparator = new javax.swing.JComboBox<>();
+        lblQualUnit = new javax.swing.JLabel();
         txtSystemComparatorValue = new javax.swing.JTextField();
         cmbxQualificationRequirementType = new javax.swing.JComboBox<>();
         btnAddQualificationRequirement = new javax.swing.JButton();
         btnCloseQualificationForm = new javax.swing.JButton();
         lblQualificationStatus = new javax.swing.JLabel();
+        btnQualificationInformation = new javax.swing.JButton();
+        lblOpenDocsError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Qualification Form");
@@ -182,7 +186,7 @@ public final class QualificationForm extends javax.swing.JDialog {
                     .addComponent(cmbxComparator, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmbxActionsGuarded, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmbxQualificationTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         pnlCustomQualificationsLayout.setVerticalGroup(
             pnlCustomQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +208,7 @@ public final class QualificationForm extends javax.swing.JDialog {
                             .addComponent(cmbxActionsGuarded, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblActionsGuarded)))
                     .addComponent(lblValue))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pnlQualCards.add(pnlCustomQualifications, "Custom Qualifications");
@@ -256,7 +260,10 @@ public final class QualificationForm extends javax.swing.JDialog {
             .addGroup(pnlOtherSystemQualificationsLayout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(pnlOtherSystemQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSystemComparatorValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlOtherSystemQualificationsLayout.createSequentialGroup()
+                        .addComponent(txtSystemComparatorValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(lblQualUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cmbxSystemComparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
@@ -266,7 +273,9 @@ public final class QualificationForm extends javax.swing.JDialog {
                 .addGap(63, 63, 63)
                 .addComponent(cmbxSystemComparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(txtSystemComparatorValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlOtherSystemQualificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSystemComparatorValue)
+                    .addComponent(lblQualUnit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
 
@@ -318,33 +327,42 @@ public final class QualificationForm extends javax.swing.JDialog {
             }
         });
 
+        btnQualificationInformation.setText("Open Documentation");
+        btnQualificationInformation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnQualificationInformationMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(48, Short.MAX_VALUE)
-                                .addComponent(pnlQualCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(cmbxQualificationRequirementType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76)))
+                                .addGap(76, 76, 76))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblQualificationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblOpenDocsError, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblCurrentQualificationRequirements)
-                            .addComponent(btnCloseQualificationForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDeleteQualificationRequirement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sclCurrentQualificationRequirements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblQualificationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddQualificationRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(349, 349, 349)))
+                            .addComponent(sclCurrentQualificationRequirements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCloseQualificationForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnQualificationInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlQualCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddQualificationRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteQualificationRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
@@ -355,22 +373,34 @@ public final class QualificationForm extends javax.swing.JDialog {
                     .addComponent(lblCurrentQualificationRequirements)
                     .addComponent(cmbxQualificationRequirementType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(sclCurrentQualificationRequirements, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteQualificationRequirement)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCloseQualificationForm))
+                        .addComponent(btnAddQualificationRequirement)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteQualificationRequirement))
                     .addComponent(pnlQualCards, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblQualificationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAddQualificationRequirement)
-                .addGap(34, 34, 34))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(lblQualificationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnQualificationInformation)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCloseQualificationForm)
+                        .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblOpenDocsError)
+                        .addGap(22, 22, 22))))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbxQualificationRequirementTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbxQualificationRequirementTypeItemStateChanged
@@ -390,6 +420,15 @@ public final class QualificationForm extends javax.swing.JDialog {
         }
         if (selection != "Locale") {
             setComboBoxValues(comparatorHM.get(selection), cmbxSystemComparator);
+            if (selection == "HITs Approved") {
+                lblQualUnit.setText("HITs");
+            }
+            else if (selection == "HIT Approval Rate") {
+                lblQualUnit.setText("%");
+            }
+            else {
+                lblQualUnit.setText("");
+            }
             selection = "Other Qualifications";
         }
         cl.show(pnlSystemCards, selection);
@@ -472,10 +511,18 @@ public final class QualificationForm extends javax.swing.JDialog {
         this.setVisible(false);
     }//GEN-LAST:event_btnCloseQualificationFormMouseClicked
 
+    private void btnQualificationInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQualificationInformationMouseClicked
+        String result = Util.openWebsite("docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_QualificationRequirementDataStructureArticle.html");
+        if (!result.isEmpty()) {
+            lblOpenDocsError.setText("Error: " + result);
+        }
+    }//GEN-LAST:event_btnQualificationInformationMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddQualificationRequirement;
     private javax.swing.JButton btnCloseQualificationForm;
     private javax.swing.JButton btnDeleteQualificationRequirement;
+    private javax.swing.JButton btnQualificationInformation;
     private javax.swing.JComboBox<String> cmbxActionsGuarded;
     private javax.swing.JComboBox<String> cmbxComparator;
     private javax.swing.JComboBox<String> cmbxLocaleComparator;
@@ -486,6 +533,8 @@ public final class QualificationForm extends javax.swing.JDialog {
     private javax.swing.JLabel lblActionsGuarded;
     private javax.swing.JLabel lblComparator;
     private javax.swing.JLabel lblCurrentQualificationRequirements;
+    private javax.swing.JLabel lblOpenDocsError;
+    private javax.swing.JLabel lblQualUnit;
     private javax.swing.JLabel lblQualificationStatus;
     private javax.swing.JLabel lblQualificationType;
     private javax.swing.JLabel lblValue;

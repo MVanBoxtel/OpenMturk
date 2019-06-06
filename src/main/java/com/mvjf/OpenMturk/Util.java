@@ -7,11 +7,13 @@ package com.mvjf.OpenMturk;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -118,4 +121,20 @@ public class Util {
         }
         return value;
     }
+    
+    public static String openWebsite(String endpoint) {                                            
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                URL url = new URL("https://" + endpoint);
+                desktop.browse(url.toURI());
+                return "";
+            } catch (Exception e) {
+                return "Error opening web page";
+            }
+        }
+        else {
+            return "Browse on desktop not supported";
+        }
+    }   
 }

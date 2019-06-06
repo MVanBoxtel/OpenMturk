@@ -7,7 +7,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -24,65 +24,85 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace pref="48" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
-                              <Component id="pnlQualCards" max="32767" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="cmbxQualificationRequirementType" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblQualificationStatus" min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Component id="lblOpenDocsError" min="-2" pref="389" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblCurrentQualificationRequirements" max="-2" attributes="0"/>
-                          <Component id="btnCloseQualificationForm" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnDeleteQualificationRequirement" alignment="0" max="32767" attributes="0"/>
                           <Component id="sclCurrentQualificationRequirements" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnCloseQualificationForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnQualificationInformation" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblQualificationStatus" min="-2" pref="194" max="-2" attributes="0"/>
-                          <Component id="btnAddQualificationRequirement" min="-2" pref="194" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="pnlQualCards" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnAddQualificationRequirement" min="-2" pref="259" max="-2" attributes="0"/>
+                          <Component id="btnDeleteQualificationRequirement" min="-2" pref="259" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCurrentQualificationRequirements" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbxQualificationRequirementType" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="sclCurrentQualificationRequirements" min="-2" pref="303" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnAddQualificationRequirement" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnDeleteQualificationRequirement" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCloseQualificationForm" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="pnlQualCards" min="-2" pref="376" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lblQualificationStatus" min="-2" pref="19" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnAddQualificationRequirement" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="lblQualificationStatus" min="-2" pref="19" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnQualificationInformation" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnCloseQualificationForm" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblOpenDocsError" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,7 +181,7 @@
                           <Component id="cmbxActionsGuarded" max="32767" attributes="0"/>
                           <Component id="cmbxQualificationTypes" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -190,7 +210,7 @@
                           </Group>
                           <Component id="lblValue" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -405,7 +425,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSystemComparatorValue" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtSystemComparatorValue" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Component id="lblQualUnit" min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="cmbxSystemComparator" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="109" max="32767" attributes="0"/>
@@ -418,7 +442,10 @@
                               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                               <Component id="cmbxSystemComparator" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="txtSystemComparatorValue" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtSystemComparatorValue" max="32767" attributes="0"/>
+                                  <Component id="lblQualUnit" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace pref="164" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -441,6 +468,8 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblQualUnit">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSystemComparatorValue">
                     </Component>
@@ -485,6 +514,16 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblQualificationStatus">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnQualificationInformation">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Open Documentation"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnQualificationInformationMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOpenDocsError">
     </Component>
   </SubComponents>
 </Form>
